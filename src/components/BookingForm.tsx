@@ -11,12 +11,12 @@ const specialties = [
   "Pediatria",
   "Saúde da Mulher",
   "Odontologia",
-  "Vacinação",
-  "Coleta de Exames",
-  "Saúde Mental",
+  "Sala de Vacinação",
+  "Coleta de Laboratório",
+  "Curativos e Procedimentos",
 ];
 
-const times = ["07:30", "08:30", "09:30", "10:30", "13:30", "14:30", "15:30", "16:30", "17:30"];
+const times = ["08:00", "09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00"];
 
 type Appointment = {
   id: string;
