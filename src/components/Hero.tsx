@@ -62,7 +62,7 @@ const Hero = () => {
           <div className="relative overflow-hidden rounded-2xl border-4 border-secondary/80 shadow-elevated">
             <img
               src={heroImg}
-              alt="Ilustração da ESF São Carlos/Urlândia com pacientes e profissionais"
+              alt="Fachada da Unidade de Saúde São Carlos - Prefeitura de Santa Maria"
               width={1536}
               height={1024}
               className="h-full w-full object-cover"
