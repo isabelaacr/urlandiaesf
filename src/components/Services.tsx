@@ -21,7 +21,7 @@ const Services = () => {
             Atendimento completo, perto de você
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Conheça as especialidades disponíveis na UBS Vila Saúde. Todos os serviços são gratuitos pelo SUS.
+            Conheça os serviços disponíveis na ESF São Carlos/Urlândia. Todo o atendimento é gratuito pelo SUS.
           </p>
         </div>
 

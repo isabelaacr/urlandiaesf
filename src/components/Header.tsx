@@ -11,8 +11,8 @@ const Header = () => {
             <Heart className="h-5 w-5" fill="currentColor" />
           </div>
           <div className="leading-tight">
-            <p className="font-display text-base font-extrabold text-primary">UBS Vila Saúde</p>
-            <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Sistema Único de Saúde</p>
+            <p className="font-display text-base font-extrabold text-primary">ESF São Carlos/Urlândia</p>
+            <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Estratégia Saúde da Família · SUS</p>
           </div>
         </a>
 
@@ -26,11 +26,11 @@ const Header = () => {
         <div className="hidden items-center gap-4 lg:flex">
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <Phone className="h-3.5 w-3.5 text-primary" />
-            <span className="font-semibold">(11) 3000-1234</span>
+            <span className="font-semibold">(55) 3174-1588</span>
           </div>
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <MapPin className="h-3.5 w-3.5 text-primary" />
-            <span className="font-semibold">Rua das Flores, 250</span>
+            <span className="font-semibold">Rua Agostinho Scolari, 546</span>
           </div>
         </div>
       </div>
