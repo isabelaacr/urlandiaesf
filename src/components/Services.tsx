@@ -1,14 +1,14 @@
-import { Stethoscope, Syringe, Baby, HeartPulse, TestTube2, Pill, Smile, Brain } from "lucide-react";
+import { Stethoscope, Syringe, Baby, HeartPulse, TestTube2, Smile, Users, Activity } from "lucide-react";
 
 const services = [
-  { icon: Stethoscope, title: "Clínica Geral", desc: "Consultas para adultos com clínicos da unidade." },
-  { icon: Baby, title: "Pediatria", desc: "Acompanhamento de crianças de 0 a 12 anos." },
-  { icon: HeartPulse, title: "Saúde da Mulher", desc: "Pré-natal, ginecologia e exames preventivos." },
-  { icon: Syringe, title: "Vacinação", desc: "Calendário do SUS, gripe, HPV e febre amarela." },
-  { icon: TestTube2, title: "Coleta de Exames", desc: "Sangue, urina e testes rápidos pela manhã." },
-  { icon: Pill, title: "Farmácia Básica", desc: "Retirada gratuita de medicamentos do SUS." },
+  { icon: Stethoscope, title: "Clínica Geral", desc: "Consultas médicas para adultos com a equipe da ESF." },
+  { icon: Baby, title: "Pediatria", desc: "Acompanhamento do crescimento e saúde infantil." },
+  { icon: HeartPulse, title: "Saúde da Mulher", desc: "Pré-natal, preventivo e planejamento familiar." },
+  { icon: Syringe, title: "Sala de Vacinação", desc: "Aplicação das vacinas do calendário do SUS." },
+  { icon: TestTube2, title: "Coleta Laboratorial", desc: "Coletas às terças e sextas pela manhã." },
   { icon: Smile, title: "Odontologia", desc: "Atendimento odontológico para toda a família." },
-  { icon: Brain, title: "Saúde Mental", desc: "Acolhimento psicológico e psiquiatria." },
+  { icon: Users, title: "Equipe Saúde da Família", desc: "Médico, enfermeiro, técnicos e agentes comunitários." },
+  { icon: Activity, title: "Curativos e Procedimentos", desc: "Cuidados de enfermagem e procedimentos básicos." },
 ];
 
 const Services = () => {
@@ -21,7 +21,7 @@ const Services = () => {
             Atendimento completo, perto de você
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Conheça as especialidades disponíveis na UBS Vila Saúde. Todos os serviços são gratuitos pelo SUS.
+            Conheça os serviços disponíveis na ESF São Carlos/Urlândia. Todo o atendimento é gratuito pelo SUS.
           </p>
         </div>
 

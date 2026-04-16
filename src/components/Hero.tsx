@@ -23,7 +23,7 @@ const Hero = () => {
           </h1>
 
           <p className="max-w-xl text-base leading-relaxed text-primary-foreground/85 md:text-lg">
-            Agende consultas, exames e vacinas na UBS Vila Saúde em poucos cliques.
+            Agende consultas, vacinas e atendimento odontológico na ESF São Carlos/Urlândia em poucos cliques.
             Tire também suas dúvidas sobre serviços e horários direto pelo nosso assistente virtual.
           </p>
 
@@ -62,7 +62,7 @@ const Hero = () => {
           <div className="relative overflow-hidden rounded-2xl border-4 border-secondary/80 shadow-elevated">
             <img
               src={heroImg}
-              alt="Ilustração da Unidade Básica de Saúde Vila Saúde com pacientes e profissionais"
+              alt="Ilustração da ESF São Carlos/Urlândia com pacientes e profissionais"
               width={1536}
               height={1024}
               className="h-full w-full object-cover"

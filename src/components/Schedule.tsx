@@ -1,16 +1,19 @@
 import { Clock, Sun, Moon } from "lucide-react";
 
 const schedule = [
-  { day: "Segunda a Sexta", morning: "07:00 – 12:00", afternoon: "13:00 – 19:00" },
-  { day: "Sábado", morning: "08:00 – 12:00", afternoon: "Fechado" },
-  { day: "Domingo e Feriados", morning: "Fechado", afternoon: "Fechado" },
+  { day: "Segunda-feira", morning: "08:00 – 12:00", afternoon: "13:00 – 17:00" },
+  { day: "Terça-feira", morning: "08:00 – 12:00", afternoon: "13:00 – 17:00" },
+  { day: "Quarta-feira", morning: "08:00 – 12:00", afternoon: "Reunião de equipe" },
+  { day: "Quinta-feira", morning: "08:00 – 12:00", afternoon: "13:00 – 17:00" },
+  { day: "Sexta-feira", morning: "08:00 – 12:00", afternoon: "13:00 – 17:00" },
+  { day: "Sábado, Domingo e Feriados", morning: "Fechado", afternoon: "Fechado" },
 ];
 
 const highlights = [
-  { title: "Vacinação", time: "Seg–Sex · 08h às 16h" },
-  { title: "Coleta de Exames", time: "Seg–Sex · 07h às 09h30 (jejum)" },
-  { title: "Farmácia", time: "Seg–Sex · 07h às 18h30" },
-  { title: "Acolhimento de urgência", time: "Todo o horário de funcionamento" },
+  { title: "Sala de Vacinação", time: "Seg–Sex · horário de atendimento" },
+  { title: "Coleta de Laboratório", time: "Terças e sextas · pela manhã" },
+  { title: "Atendimento Odontológico", time: "Seg–Sex · com agendamento" },
+  { title: "Reunião de equipe", time: "Quartas à tarde (sem atendimento)" },
 ];
 
 const Schedule = () => {

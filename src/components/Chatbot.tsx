@@ -8,61 +8,72 @@ type Msg = { role: "bot" | "user"; text: string };
 const QUICK = [
   "Quais os horários de funcionamento?",
   "Como agendar uma consulta?",
-  "Onde fica a UBS?",
-  "Tem vacinação contra gripe?",
-  "Quais serviços vocês oferecem?",
-  "Preciso levar documentos?",
+  "Onde fica a ESF?",
+  "Tem sala de vacinação?",
+  "Quando é a coleta de laboratório?",
+  "Tem atendimento odontológico?",
+  "Qual o telefone?",
+  "Vocês têm Instagram?",
 ];
 
 const FAQ: { keys: string[]; answer: string }[] = [
   {
-    keys: ["horário", "horarios", "funcionamento", "abre", "fecha", "aberto"],
+    keys: ["horário", "horarios", "horário de funcionamento", "funcionamento", "abre", "fecha", "aberto", "atendimento"],
     answer:
-      "Funcionamos de **segunda a sexta**, das **07h às 19h**, e aos **sábados das 08h às 12h**. Domingos e feriados estamos fechados. Em emergências, ligue 192 (SAMU).",
+      "Atendemos de **segunda a sexta-feira**, das **8h ao meio-dia** e das **13h às 17h**. Não há atendimento aos sábados, domingos e feriados. Em emergências, ligue 192 (SAMU).",
   },
   {
     keys: ["agendar", "marcar", "consulta", "agendamento"],
     answer:
-      "Você pode agendar pela seção **Agendar consulta** desta página, ou pessoalmente na recepção. Basta informar nome, CPF, telefone, especialidade e horário desejado.",
+      "Você pode agendar pela seção **Agendar consulta** desta página, presencialmente na recepção ou pelo telefone **(55) 3174-1588 – opção 1**. Tenha em mãos seu Cartão SUS.",
   },
   {
-    keys: ["onde", "endereço", "endereco", "localização", "localizacao", "fica"],
+    keys: ["onde", "endereço", "endereco", "localização", "localizacao", "fica", "rua"],
     answer:
-      "Estamos na **Rua das Flores, 250 – Vila Saúde**. Há ponto de ônibus na esquina e estacionamento gratuito para idosos e gestantes.",
+      "Estamos na **Rua Agostinho Scolari, 546 – Vila Urlândia**. Você é bem-vindo(a) no horário de atendimento da unidade.",
   },
   {
-    keys: ["vacina", "vacinação", "vacinacao", "gripe", "covid", "hpv"],
+    keys: ["vacina", "vacinação", "vacinacao", "sala de vacina"],
     answer:
-      "Sim! Aplicamos todas as vacinas do **calendário do SUS**, incluindo gripe, HPV, febre amarela e reforços de COVID-19. A sala de vacinas atende de **segunda a sexta, das 08h às 16h**. Leve a carteirinha de vacinação.",
+      "Sim! Temos **sala de vacinação** na unidade, com aplicação das vacinas do **calendário do SUS**. Atendemos de segunda a sexta, no horário normal de funcionamento. Leve a carteirinha de vacinação.",
   },
   {
-    keys: ["serviço", "servicos", "servico", "especialidade", "atendimento", "oferecem"],
+    keys: ["odontológico", "odontologico", "dentista", "odonto"],
     answer:
-      "Oferecemos **clínica geral, pediatria, saúde da mulher, odontologia, saúde mental, vacinação, coleta de exames** e **farmácia básica**. Todos os atendimentos são gratuitos pelo SUS.",
+      "Sim, temos **atendimento odontológico** para toda a família, de segunda a sexta. Recomendamos agendar previamente pela recepção ou por telefone.",
   },
   {
-    keys: ["documento", "documentos", "levar", "rg", "cpf", "cartão", "cartao"],
+    keys: ["coleta", "laboratório", "laboratorio", "exame", "exames", "sangue", "jejum"],
+    answer:
+      "A **coleta do laboratório** acontece **às terças e sextas-feiras pela manhã**. Lembre-se do **jejum** quando indicado pelo médico e leve seu pedido de exame e Cartão SUS.",
+  },
+  {
+    keys: ["reunião", "reuniao", "quarta", "quartas"],
+    answer:
+      "Toda **quarta-feira à tarde** a equipe se reúne para planejamento e capacitação. Nesse período **não há atendimento à tarde**, apenas pela manhã. Programe-se!",
+  },
+  {
+    keys: ["serviço", "servicos", "servico", "especialidade", "oferecem", "oferece"],
+    answer:
+      "Oferecemos **clínica geral, pediatria, saúde da mulher, odontologia, sala de vacinação, coleta laboratorial, curativos e procedimentos** com a equipe de Saúde da Família. Tudo gratuito pelo SUS.",
+  },
+  {
+    keys: ["telefone", "contato", "ligar", "número", "numero"],
+    answer: "Nosso telefone é **(55) 3174-1588 – opção 1**. Atendemos no horário de funcionamento da unidade.",
+  },
+  {
+    keys: ["instagram", "rede social", "redes sociais", "facebook", "social"],
+    answer: "Siga a gente no Instagram: **@esf_saocarlos** 📲 Lá divulgamos campanhas, horários especiais e dicas de saúde.",
+  },
+  {
+    keys: ["documento", "documentos", "levar", "rg", "cpf", "cartão", "cartao", "sus"],
     answer:
       "Traga **RG, CPF e Cartão SUS**. Para crianças, leve a **certidão de nascimento e a carteira de vacinação**. Comprovante de residência é recomendado no primeiro atendimento.",
   },
   {
-    keys: ["exame", "exames", "coleta", "sangue", "jejum"],
-    answer:
-      "A coleta de exames acontece de **segunda a sexta, das 07h às 09h30**, sempre em **jejum de 8 a 12h** (água é permitida). Resultados ficam prontos em até 5 dias úteis.",
-  },
-  {
-    keys: ["remédio", "remedio", "medicamento", "farmácia", "farmacia"],
-    answer:
-      "A farmácia básica funciona de **segunda a sexta, das 07h às 18h30**. Leve a receita médica (validade de 6 meses) e o Cartão SUS para retirar os medicamentos gratuitamente.",
-  },
-  {
-    keys: ["telefone", "contato", "ligar"],
-    answer: "Você pode falar com a recepção pelo telefone **(11) 3000-1234**, no horário de funcionamento da unidade.",
-  },
-  {
     keys: ["cancelar", "remarcar", "desmarcar", "reagendar"],
     answer:
-      "Para cancelar ou remarcar, acesse novamente a seção de agendamento ou ligue para **(11) 3000-1234** com até 24 horas de antecedência. Isso libera vagas para outros pacientes.",
+      "Para cancelar ou remarcar, faça um novo agendamento no site ou ligue para **(55) 3174-1588 – opção 1** com até 24 horas de antecedência. Isso libera vagas para outros pacientes.",
   },
 ];
 
@@ -72,9 +83,9 @@ function findAnswer(input: string): string {
     if (item.keys.some((k) => t.includes(k))) return item.answer;
   }
   if (/(oi|olá|ola|bom dia|boa tarde|boa noite)/.test(t))
-    return "Olá! 👋 Sou o assistente virtual da UBS Vila Saúde. Posso ajudar com horários, agendamento, serviços e localização. O que você gostaria de saber?";
+    return "Olá! 👋 Sou o assistente virtual da ESF São Carlos/Urlândia. Posso ajudar com horários, agendamento, serviços, vacinação, coleta de laboratório e localização. O que você gostaria de saber?";
   if (/(obrigad|valeu|vlw)/.test(t)) return "Por nada! Sempre que precisar, é só chamar. Cuide-se! 💚";
-  return "Não encontrei essa informação aqui. Para detalhes específicos, ligue para **(11) 3000-1234** ou pergunte sobre: horários, agendamento, serviços, vacinação, exames, documentos ou localização.";
+  return "Não encontrei essa informação aqui. Para detalhes específicos, ligue para **(55) 3174-1588 – opção 1** ou pergunte sobre: horários, agendamento, serviços, vacinação, coleta de laboratório, odontologia, documentos ou localização.";
 }
 
 // Renderização simples de **negrito**
@@ -87,7 +98,7 @@ function renderText(text: string) {
 
 const Chatbot = () => {
   const [messages, setMessages] = useState<Msg[]>([
-    { role: "bot", text: "Olá! 👋 Sou o assistente da UBS. Como posso ajudar? Selecione uma pergunta abaixo ou digite a sua." },
+    { role: "bot", text: "Olá! 👋 Sou o assistente da ESF São Carlos/Urlândia. Como posso ajudar? Selecione uma pergunta abaixo ou digite a sua." },
   ]);
   const [input, setInput] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
@@ -111,10 +122,10 @@ const Chatbot = () => {
         <div className="space-y-5">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Tire suas dúvidas</span>
           <h2 className="font-display text-3xl font-extrabold text-foreground md:text-4xl">
-            Assistente virtual da UBS
+            Assistente virtual da ESF
           </h2>
           <p className="text-muted-foreground">
-            Pergunte sobre <strong className="text-foreground">horários, serviços, vacinação, exames</strong> e mais.
+            Pergunte sobre <strong className="text-foreground">horários, serviços, vacinação, coleta de laboratório</strong> e mais.
             Respostas instantâneas, 24 horas por dia.
           </p>
           <div className="rounded-xl border border-border bg-card p-5 shadow-soft">
@@ -140,7 +151,7 @@ const Chatbot = () => {
               <span className="absolute -right-0.5 -top-0.5 h-3 w-3 animate-pulse-soft rounded-full border-2 border-primary bg-success" />
             </div>
             <div>
-              <p className="font-display font-extrabold leading-tight">Assistente UBS</p>
+              <p className="font-display font-extrabold leading-tight">Assistente ESF</p>
               <p className="flex items-center gap-1 text-xs text-primary-foreground/80">
                 <Sparkles className="h-3 w-3" /> Online · respostas instantâneas
               </p>
