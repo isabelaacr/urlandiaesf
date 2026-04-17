@@ -137,7 +137,7 @@ function findAnswer(input: string): string {
   if (/(oi|olá|ola|bom dia|boa tarde|boa noite)/.test(t))
     return "Olá! 👋 Sou o assistente virtual da ESF São Carlos/Urlândia. Posso ajudar com horários, agendamento, serviços, vacinação, coleta de laboratório e localização. O que você gostaria de saber?";
   if (/(obrigad|valeu|vlw)/.test(t)) return "Por nada! Sempre que precisar, é só chamar. Cuide-se! 💚";
-  return "Não encontrei essa informação aqui. Para detalhes específicos, ligue para **(55) 3174-1588 – opção 1** ou pergunte sobre: horários, agendamento, serviços, vacinação, coleta de laboratório, odontologia, documentos ou localização.";
+  return "Não encontrei essa informação aqui. Para detalhes específicos, ligue para **(55) 3174-1588 – opção 1** ou pergunte sobre: horários, agendamento por área, odontologia, vacinação, coleta de laboratório, testes rápidos, grupos, acolhimento, equipe, estrutura ou documentos.";
 }
 
 // Renderização simples de **negrito**
