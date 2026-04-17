@@ -7,55 +7,107 @@ type Msg = { role: "bot" | "user"; text: string };
 
 const QUICK = [
   "Quais os horários de funcionamento?",
-  "Como agendar uma consulta?",
-  "Onde fica a ESF?",
-  "Tem sala de vacinação?",
+  "Como agendar consulta médica?",
+  "Como agendar dentista?",
   "Quando é a coleta de laboratório?",
-  "Tem atendimento odontológico?",
-  "Qual o telefone?",
-  "Vocês têm Instagram?",
+  "Quando funciona a sala de vacinas?",
+  "Quais grupos posso participar?",
+  "Como funciona o acolhimento?",
+  "Vocês fazem testes rápidos?",
+  "Quem é a equipe?",
+  "Qual o telefone e o Instagram?",
 ];
 
 const FAQ: { keys: string[]; answer: string }[] = [
   {
-    keys: ["horário", "horarios", "horário de funcionamento", "funcionamento", "abre", "fecha", "aberto", "atendimento"],
+    keys: ["horário", "horarios", "horário de funcionamento", "funcionamento", "abre", "fecha", "aberto"],
     answer:
-      "Atendemos de **segunda a sexta-feira**, das **8h ao meio-dia** e das **13h às 17h**. Não há atendimento aos sábados, domingos e feriados. Em emergências, ligue 192 (SAMU).",
+      "Atendemos de **segunda a sexta-feira**, das **8h ao meio-dia** e das **13h às 17h**. **Quartas-feiras à tarde a unidade está fechada** para reunião de equipe. Não há atendimento aos fins de semana e feriados. Em emergências, ligue 192 (SAMU).",
   },
   {
-    keys: ["agendar", "marcar", "consulta", "agendamento"],
+    keys: ["agendar médico", "agendar medico", "consulta médica", "consulta medica", "área 19", "area 19", "área 20", "area 20", "marcar consulta"],
     answer:
-      "Você pode agendar pela seção **Agendar consulta** desta página, presencialmente na recepção ou pelo telefone **(55) 3174-1588 – opção 1**. Tenha em mãos seu Cartão SUS.",
+      "Os agendamentos médicos seguem a divisão por área: **Área 19 — quinzenal** e **Área 20 — mensal**. Você pode agendar pela seção **Agendar consulta** desta página, na recepção ou pelo telefone **(55) 3174-1588 – opção 1**. Tenha em mãos seu Cartão SUS.",
+  },
+  {
+    keys: ["agendar", "marcar", "agendamento"],
+    answer:
+      "Você pode agendar pela seção **Agendar consulta**, presencialmente na recepção ou pelo telefone **(55) 3174-1588 – opção 1**. Médico Área 19: quinzenal · Área 20: mensal · Odontologia: quartas, 8h.",
+  },
+  {
+    keys: ["dentista", "odontológico", "odontologico", "odonto"],
+    answer:
+      "O **agendamento odontológico** é feito **às quartas-feiras, às 8h, presencialmente** na unidade. **Idosos** podem agendar **por telefone**: (55) 3174-1588 – opção 1.",
   },
   {
     keys: ["onde", "endereço", "endereco", "localização", "localizacao", "fica", "rua"],
     answer:
-      "Estamos na **Rua Agostinho Scolari, 546 – Vila Urlândia**. Você é bem-vindo(a) no horário de atendimento da unidade.",
+      "Estamos na **Rua Agostinho Scolari, 546 – Vila Urlândia**. Atendemos de segunda a sexta no horário regular.",
   },
   {
-    keys: ["vacina", "vacinação", "vacinacao", "sala de vacina"],
+    keys: ["vacina", "vacinação", "vacinacao", "sala de vacina", "pezinho", "teste do pezinho"],
     answer:
-      "Sim! Temos **sala de vacinação** na unidade, com aplicação das vacinas do **calendário do SUS**. Atendemos de segunda a sexta, no horário normal de funcionamento. Leve a carteirinha de vacinação.",
+      "A **sala de vacinas** funciona às **terças e quintas-feiras**, das **8h às 11h e 13h às 16h**. Realizamos vacinas do calendário do SUS e o **teste do pezinho**. Traga **documento de identificação** e, para crianças, a **carteirinha de vacinação**.",
   },
   {
-    keys: ["odontológico", "odontologico", "dentista", "odonto"],
+    keys: ["coleta", "laboratório", "laboratorio", "labvida", "exame de sangue", "jejum"],
     answer:
-      "Sim, temos **atendimento odontológico** para toda a família, de segunda a sexta. Recomendamos agendar previamente pela recepção ou por telefone.",
+      "A **coleta laboratorial (LABVIDA)** acontece **às terças e quintas-feiras, às 8h**. Lembre-se do **jejum** quando indicado pelo médico e leve seu pedido de exame e Cartão SUS.",
   },
   {
-    keys: ["coleta", "laboratório", "laboratorio", "exame", "exames", "sangue", "jejum"],
+    keys: ["curativo", "curativos", "procedimento", "procedimentos"],
     answer:
-      "A **coleta do laboratório** acontece **às terças e sextas-feiras pela manhã**. Lembre-se do **jejum** quando indicado pelo médico e leve seu pedido de exame e Cartão SUS.",
+      "Realizamos **curativos e procedimentos** todos os dias da semana, das **8h às 11h e 13h às 16h** — exceto **quarta-feira à tarde**. Não é necessário agendar.",
+  },
+  {
+    keys: ["teste rápido", "teste rapido", "hiv", "sífilis", "sifilis", "hepatite", "gravidez"],
+    answer:
+      "Oferecemos **testes rápidos** para **HIV, sífilis, hepatites B e C**, todos os dias das **8h às 11h e 13h às 16h** (exceto quarta à tarde). O **teste rápido de gravidez** requer **mínimo de 7 dias de atraso menstrual** e **4 horas de retenção urinária**.",
+  },
+  {
+    keys: ["acolhimento", "demanda espontânea", "demanda espontanea", "urgência", "urgencia"],
+    answer:
+      "**Acolhimento Área 19:** segunda a sexta, das **8h às 9h** e das **13h às 14h**. **Acolhimento Área 20:** **terças e quintas**, das **8h às 11h e 13h às 16h**. Em outros turnos, a equipe avalia urgência e risco.",
+  },
+  {
+    keys: ["grupo", "grupos", "amigos da saúde", "vida leve", "fisioterapia", "ufn", "gestante"],
+    answer:
+      "Temos **4 grupos** abertos à comunidade:\n• **Amigos da Saúde** — segundas, 8h\n• **Vida Leve** — terças, 14h\n• **Fisioterapia UFN** — quartas, 8h\n• **Gestantes** — mensal (confirme a data na recepção)",
   },
   {
     keys: ["reunião", "reuniao", "quarta", "quartas"],
     answer:
-      "Toda **quarta-feira à tarde** a equipe se reúne para planejamento e capacitação. Nesse período **não há atendimento à tarde**, apenas pela manhã. Programe-se!",
+      "Toda **quarta-feira à tarde** a unidade fica **fechada** para reunião de equipe. Pela manhã, o atendimento ocorre normalmente.",
   },
   {
-    keys: ["serviço", "servicos", "servico", "especialidade", "oferecem", "oferece"],
+    keys: ["equipe", "profissionais", "médicos", "medicos", "enfermeiros", "agentes", "acs"],
     answer:
-      "Oferecemos **clínica geral, pediatria, saúde da mulher, odontologia, sala de vacinação, coleta laboratorial, curativos e procedimentos** com a equipe de Saúde da Família. Tudo gratuito pelo SUS.",
+      "Nossa equipe tem **2 médicos(as), 2 enfermeiros(as), 2 técnicos(as) de enfermagem, 8 agentes comunitários de saúde e 1 dentista**, com média de **40 horas semanais**.",
+  },
+  {
+    keys: ["estrutura", "instalações", "instalacoes", "consultório", "consultorio", "salas"],
+    answer:
+      "A unidade conta com **recepção, sala de acolhimento, consultórios médico e de enfermagem, sala de procedimentos, sala de vacinação e acesso à internet**. Não temos farmácia completa, apenas dispensário para alguns medicamentos.",
+  },
+  {
+    keys: ["receita", "renovação", "renovacao", "medicamento", "remédio", "remedio"],
+    answer:
+      "A **renovação de receitas** deve ser **agendada previamente** na recepção ou pelo telefone **(55) 3174-1588 – opção 1**.",
+  },
+  {
+    keys: ["visita", "domiciliar", "acamado", "paliativo", "paliativos"],
+    answer:
+      "Realizamos **visitas domiciliares** para pacientes **acamados** e em **cuidados paliativos**. As visitas do enfermeiro são **pré-agendadas**. Procure seu agente comunitário de saúde ou a recepção.",
+  },
+  {
+    keys: ["pré-natal", "pre-natal", "pre natal", "prenatal", "puericultura", "criança", "crianca"],
+    answer:
+      "Oferecemos **pré-natal** para gestantes e **puericultura** para acompanhamento do crescimento das crianças. Agende sua consulta na recepção ou pelo formulário desta página.",
+  },
+  {
+    keys: ["preventivo", "citopatológico", "citopatologico", "papanicolau", "colo do útero", "colo do utero"],
+    answer:
+      "A **coleta de exame citopatológico (preventivo do colo do útero)** é realizada com a equipe de enfermagem. Agende na recepção ou pelo telefone (55) 3174-1588 – opção 1.",
   },
   {
     keys: ["telefone", "contato", "ligar", "número", "numero"],
@@ -66,9 +118,9 @@ const FAQ: { keys: string[]; answer: string }[] = [
     answer: "Siga a gente no Instagram: **@esf_saocarlos** 📲 Lá divulgamos campanhas, horários especiais e dicas de saúde.",
   },
   {
-    keys: ["documento", "documentos", "levar", "rg", "cpf", "cartão", "cartao", "sus"],
+    keys: ["documento", "documentos", "levar", "rg", "cpf", "cartão sus", "cartao sus", "cadastro"],
     answer:
-      "Traga **RG, CPF e Cartão SUS**. Para crianças, leve a **certidão de nascimento e a carteira de vacinação**. Comprovante de residência é recomendado no primeiro atendimento.",
+      "Traga sempre **RG, CPF e Cartão SUS** para consultas, retirada de medicamentos e atualização de cadastro. Para crianças, leve a **certidão de nascimento e a carteira de vacinação**.",
   },
   {
     keys: ["cancelar", "remarcar", "desmarcar", "reagendar"],
