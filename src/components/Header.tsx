@@ -21,7 +21,8 @@ const Header = () => {
           <a href="#equipe" className="text-sm font-semibold text-foreground/80 transition-base hover:text-primary">Equipe</a>
           <a href="#agendar" className="text-sm font-semibold text-foreground/80 transition-base hover:text-primary">Agendar</a>
           <a href="#horarios" className="text-sm font-semibold text-foreground/80 transition-base hover:text-primary">Horários</a>
-          <a href="#grupos" className="text-sm font-semibold text-foreground/80 transition-base hover:text-primary">Grupos</a>
+          <a href="#calendario" className="text-sm font-semibold text-foreground/80 transition-base hover:text-primary">Calendário</a>
+          <a href="#como-chegar" className="text-sm font-semibold text-foreground/80 transition-base hover:text-primary">Localização</a>
           <a href="#duvidas" className="text-sm font-semibold text-foreground/80 transition-base hover:text-primary">Dúvidas</a>
         </nav>
 
