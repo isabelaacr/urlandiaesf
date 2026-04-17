@@ -44,16 +44,16 @@ const Hero = () => {
 
           <dl className="grid grid-cols-3 gap-4 border-t border-primary-foreground/15 pt-6">
             <div>
-              <dt className="text-xs uppercase tracking-wider text-primary-foreground/60">Atendimentos/mês</dt>
-              <dd className="mt-1 font-display text-2xl font-extrabold text-secondary">+8mil</dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-wider text-primary-foreground/60">Especialidades</dt>
-              <dd className="mt-1 font-display text-2xl font-extrabold text-secondary">12</dd>
+              <dt className="text-xs uppercase tracking-wider text-primary-foreground/60">Áreas atendidas</dt>
+              <dd className="mt-1 font-display text-2xl font-extrabold text-secondary">19 e 20</dd>
             </div>
             <div>
               <dt className="text-xs uppercase tracking-wider text-primary-foreground/60">Profissionais</dt>
-              <dd className="mt-1 font-display text-2xl font-extrabold text-secondary">34</dd>
+              <dd className="mt-1 font-display text-2xl font-extrabold text-secondary">15+</dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-wider text-primary-foreground/60">Agentes comunitários</dt>
+              <dd className="mt-1 font-display text-2xl font-extrabold text-secondary">8</dd>
             </div>
           </dl>
         </div>

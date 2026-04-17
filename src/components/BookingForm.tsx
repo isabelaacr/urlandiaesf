@@ -7,13 +7,17 @@ import { toast } from "sonner";
 import { CalendarCheck2, User, IdCard, Phone, Stethoscope, CalendarDays, Clock4, CheckCircle2 } from "lucide-react";
 
 const specialties = [
-  "Clínica Geral",
-  "Pediatria",
-  "Saúde da Mulher",
-  "Odontologia",
-  "Sala de Vacinação",
-  "Coleta de Laboratório",
+  "Consulta Médica — Área 19",
+  "Consulta Médica — Área 20",
+  "Consulta de Enfermagem",
+  "Odontologia (quartas, 8h)",
+  "Sala de Vacinação (ter/qui)",
+  "Coleta Laboratorial (ter/qui · 8h)",
   "Curativos e Procedimentos",
+  "Testes Rápidos (HIV, sífilis, hepatites, gravidez)",
+  "Pré-natal / Puericultura",
+  "Renovação de Receitas",
+  "Visita Domiciliar (acamados)",
 ];
 
 const times = ["08:00", "09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00"];
@@ -45,6 +49,17 @@ const BookingForm = () => {
     e.preventDefault();
     if (!form.name || !form.cpf || !form.phone || !form.specialty || !form.date || !form.time) {
       toast.error("Preencha todos os campos para confirmar.");
+      return;
+    }
+    const selected = new Date(form.date + "T00:00");
+    const weekday = selected.getDay(); // 0=Dom, 3=Qua, 6=Sáb
+    const hour = parseInt(form.time.split(":")[0], 10);
+    if (weekday === 0 || weekday === 6) {
+      toast.error("Não há atendimento aos sábados, domingos e feriados.");
+      return;
+    }
+    if (weekday === 3 && hour >= 13) {
+      toast.error("Quartas-feiras à tarde a unidade está fechada para reunião de equipe.");
       return;
     }
     const appt: Appointment = {
@@ -80,8 +95,8 @@ const BookingForm = () => {
           <ul className="space-y-3">
             {[
               "Atendimento 100% gratuito pelo SUS",
-              "Lembretes por SMS 24h antes da consulta",
-              "Reagende ou cancele sem complicação",
+              "Traga RG, CPF e Cartão SUS no dia da consulta",
+              "Quartas à tarde fechado · sem atendimento sáb/dom",
             ].map((t) => (
               <li key={t} className="flex items-start gap-2.5 text-sm text-foreground">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" />
