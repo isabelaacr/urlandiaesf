@@ -4,7 +4,9 @@ import Services from "@/components/Services";
 import Team from "@/components/Team";
 import BookingForm from "@/components/BookingForm";
 import Schedule from "@/components/Schedule";
+import EventsCalendar from "@/components/EventsCalendar";
 import Groups from "@/components/Groups";
+import LocationMap from "@/components/LocationMap";
 import Chatbot from "@/components/Chatbot";
 import Footer from "@/components/Footer";
 
@@ -18,7 +20,9 @@ const Index = () => {
         <Team />
         <BookingForm />
         <Schedule />
+        <EventsCalendar />
         <Groups />
+        <LocationMap />
         <Chatbot />
       </main>
       <Footer />

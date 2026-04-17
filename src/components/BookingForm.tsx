@@ -4,7 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-import { CalendarCheck2, User, IdCard, Phone, Stethoscope, CalendarDays, Clock4, CheckCircle2 } from "lucide-react";
+import { CalendarCheck2, User, IdCard, Phone, Stethoscope, CalendarDays, Clock4, CheckCircle2, Download, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { jsPDF } from "jspdf";
 
 const specialties = [
   "Consulta Médica — Área 19",
@@ -23,12 +25,14 @@ const specialties = [
 const times = ["08:00", "09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00"];
 
 type Appointment = {
-  id: string;
+  protocol: string;
   name: string;
   specialty: string;
   date: string;
   time: string;
 };
+
+const generateProtocol = () => Math.random().toString(36).slice(2, 8).toUpperCase();
 
 const BookingForm = () => {
   const [form, setForm] = useState({
@@ -40,19 +44,20 @@ const BookingForm = () => {
     time: "",
   });
   const [confirmation, setConfirmation] = useState<Appointment | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const today = new Date().toISOString().split("T")[0];
 
   const update = (k: keyof typeof form, v: string) => setForm((p) => ({ ...p, [k]: v }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.cpf || !form.phone || !form.specialty || !form.date || !form.time) {
       toast.error("Preencha todos os campos para confirmar.");
       return;
     }
     const selected = new Date(form.date + "T00:00");
-    const weekday = selected.getDay(); // 0=Dom, 3=Qua, 6=Sáb
+    const weekday = selected.getDay();
     const hour = parseInt(form.time.split(":")[0], 10);
     if (weekday === 0 || weekday === 6) {
       toast.error("Não há atendimento aos sábados, domingos e feriados.");
@@ -62,8 +67,30 @@ const BookingForm = () => {
       toast.error("Quartas-feiras à tarde a unidade está fechada para reunião de equipe.");
       return;
     }
+
+    setSubmitting(true);
+    const protocol = generateProtocol();
+
+    const { error } = await supabase.from("appointments").insert({
+      protocol,
+      patient_name: form.name,
+      cpf: form.cpf,
+      phone: form.phone,
+      specialty: form.specialty,
+      appointment_date: form.date,
+      appointment_time: form.time,
+    });
+
+    setSubmitting(false);
+
+    if (error) {
+      console.error(error);
+      toast.error("Não foi possível salvar o agendamento. Tente novamente.");
+      return;
+    }
+
     const appt: Appointment = {
-      id: Math.random().toString(36).slice(2, 8).toUpperCase(),
+      protocol,
       name: form.name,
       specialty: form.specialty,
       date: form.date,
@@ -71,8 +98,108 @@ const BookingForm = () => {
     };
     setConfirmation(appt);
     toast.success("Agendamento confirmado!", {
-      description: `Protocolo ${appt.id} – ${new Date(appt.date + "T00:00").toLocaleDateString("pt-BR")} às ${appt.time}`,
+      description: `Protocolo ${appt.protocol} – ${new Date(appt.date + "T00:00").toLocaleDateString("pt-BR")} às ${appt.time}`,
     });
+  };
+
+  const downloadPdf = () => {
+    if (!confirmation) return;
+    const doc = new jsPDF({ unit: "mm", format: "a4" });
+    const w = doc.internal.pageSize.getWidth();
+
+    // faixa SUS verde
+    doc.setFillColor(0, 122, 51);
+    doc.rect(0, 0, w, 18, "F");
+    doc.setFillColor(255, 207, 0);
+    doc.rect(0, 18, w, 3, "F");
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("ESF SAO CARLOS / URLANDIA", 14, 12);
+
+    // Título
+    doc.setTextColor(20, 20, 20);
+    doc.setFontSize(20);
+    doc.text("Comprovante de Agendamento", 14, 38);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.setTextColor(90, 90, 90);
+    doc.text("Apresente este comprovante na recepcao da unidade.", 14, 46);
+
+    // Caixa do protocolo
+    doc.setDrawColor(0, 122, 51);
+    doc.setLineWidth(0.6);
+    doc.roundedRect(14, 56, w - 28, 24, 3, 3);
+    doc.setTextColor(0, 122, 51);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(10);
+    doc.text("PROTOCOLO", 20, 65);
+    doc.setFontSize(22);
+    doc.setTextColor(20, 20, 20);
+    doc.text(confirmation.protocol, 20, 75);
+
+    // Dados
+    const dateStr = new Date(confirmation.date + "T00:00").toLocaleDateString("pt-BR", {
+      weekday: "long",
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
+
+    const rows: [string, string][] = [
+      ["Paciente", confirmation.name],
+      ["Especialidade", confirmation.specialty],
+      ["Data", dateStr],
+      ["Horario", confirmation.time],
+    ];
+
+    let y = 95;
+    rows.forEach(([label, value]) => {
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(10);
+      doc.setTextColor(120, 120, 120);
+      doc.text(label.toUpperCase(), 14, y);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(13);
+      doc.setTextColor(20, 20, 20);
+      const wrapped = doc.splitTextToSize(value, w - 28);
+      doc.text(wrapped, 14, y + 6);
+      y += 16 + (wrapped.length - 1) * 6;
+    });
+
+    // Rodapé
+    y += 6;
+    doc.setDrawColor(220, 220, 220);
+    doc.line(14, y, w - 14, y);
+    y += 8;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(10);
+    doc.setTextColor(20, 20, 20);
+    doc.text("Antes da consulta", 14, y);
+    y += 6;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.setTextColor(90, 90, 90);
+    [
+      "- Traga RG, CPF e Cartao SUS.",
+      "- Chegue com 15 minutos de antecedencia.",
+      "- Em caso de imprevisto, ligue (55) 3174-1588 - opcao 1.",
+      "- Quartas a tarde a unidade fica fechada para reuniao de equipe.",
+    ].forEach((line) => {
+      doc.text(line, 14, y);
+      y += 5;
+    });
+
+    y += 10;
+    doc.setFontSize(9);
+    doc.setTextColor(150, 150, 150);
+    doc.text("Rua Agostinho Scolari, 546 - Vila Urlandia, Santa Maria/RS", 14, y);
+    doc.text(`Emitido em ${new Date().toLocaleString("pt-BR")}`, 14, y + 5);
+
+    doc.save(`agendamento-${confirmation.protocol}.pdf`);
+    toast.success("Comprovante baixado!");
   };
 
   const reset = () => {
@@ -89,7 +216,7 @@ const BookingForm = () => {
             Marque sua consulta em menos de um minuto
           </h2>
           <p className="text-muted-foreground">
-            Preencha seus dados e escolha o melhor horário. Você receberá um número de protocolo para apresentar na recepção.
+            Preencha seus dados e escolha o melhor horário. Você receberá um número de protocolo e poderá baixar um comprovante em PDF.
           </p>
 
           <ul className="space-y-3">
@@ -118,15 +245,21 @@ const BookingForm = () => {
               </p>
 
               <div className="mt-6 space-y-3 rounded-xl border-2 border-dashed border-primary/30 bg-primary-soft/40 p-5 text-left">
-                <Row label="Protocolo" value={confirmation.id} />
+                <Row label="Protocolo" value={confirmation.protocol} />
                 <Row label="Especialidade" value={confirmation.specialty} />
                 <Row label="Data" value={new Date(confirmation.date + "T00:00").toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "long" })} />
                 <Row label="Horário" value={confirmation.time} />
               </div>
 
-              <Button onClick={reset} variant="outline" className="mt-6 w-full">
-                Fazer novo agendamento
-              </Button>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                <Button onClick={downloadPdf} size="lg" className="font-bold shadow-soft">
+                  <Download className="mr-2 h-4 w-4" />
+                  Baixar comprovante
+                </Button>
+                <Button onClick={reset} variant="outline" size="lg">
+                  Novo agendamento
+                </Button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -176,8 +309,12 @@ const BookingForm = () => {
                 </Field>
               </div>
 
-              <Button type="submit" size="lg" className="w-full font-bold shadow-soft">
-                Confirmar agendamento
+              <Button type="submit" size="lg" disabled={submitting} className="w-full font-bold shadow-soft">
+                {submitting ? (
+                  <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Salvando...</>
+                ) : (
+                  "Confirmar agendamento"
+                )}
               </Button>
             </form>
           )}
