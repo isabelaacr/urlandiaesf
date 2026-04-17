@@ -1,14 +1,18 @@
-import { Stethoscope, Syringe, Baby, HeartPulse, TestTube2, Smile, Users, Activity } from "lucide-react";
+import { Stethoscope, Syringe, Baby, HeartPulse, TestTube2, Smile, Bandage, ClipboardList, Home, FileText, Sparkles, ShieldPlus } from "lucide-react";
 
 const services = [
-  { icon: Stethoscope, title: "Clínica Geral", desc: "Consultas médicas para adultos com a equipe da ESF." },
-  { icon: Baby, title: "Pediatria", desc: "Acompanhamento do crescimento e saúde infantil." },
-  { icon: HeartPulse, title: "Saúde da Mulher", desc: "Pré-natal, preventivo e planejamento familiar." },
-  { icon: Syringe, title: "Sala de Vacinação", desc: "Aplicação das vacinas do calendário do SUS." },
-  { icon: TestTube2, title: "Coleta Laboratorial", desc: "Coletas às terças e sextas pela manhã." },
-  { icon: Smile, title: "Odontologia", desc: "Atendimento odontológico para toda a família." },
-  { icon: Users, title: "Equipe Saúde da Família", desc: "Médico, enfermeiro, técnicos e agentes comunitários." },
-  { icon: Activity, title: "Curativos e Procedimentos", desc: "Cuidados de enfermagem e procedimentos básicos." },
+  { icon: Stethoscope, title: "Consultas Médicas", desc: "Clínica geral agendada e demanda espontânea com 2 médicos(as)." },
+  { icon: HeartPulse, title: "Consultas de Enfermagem", desc: "Acolhimento, escuta qualificada e orientações com a equipe." },
+  { icon: Baby, title: "Puericultura e Pré-natal", desc: "Acompanhamento de gestantes e da saúde da criança." },
+  { icon: ShieldPlus, title: "Coleta de Citopatológico", desc: "Preventivo do colo uterino com a equipe de enfermagem." },
+  { icon: Syringe, title: "Sala de Vacinação", desc: "Vacinas do SUS e teste do pezinho — terças e quintas." },
+  { icon: TestTube2, title: "Coleta Laboratorial (LABVIDA)", desc: "Coletas às terças e quintas-feiras, às 8h." },
+  { icon: Smile, title: "Odontologia", desc: "Agendamento presencial às quartas, 8h. Idosos por telefone." },
+  { icon: Bandage, title: "Curativos e Procedimentos", desc: "Todos os dias, 8h–11h e 13h–16h (exceto quarta à tarde)." },
+  { icon: Sparkles, title: "Testes Rápidos", desc: "HIV, sífilis, hepatites B e C e gravidez, conforme protocolo." },
+  { icon: Home, title: "Visitas Domiciliares", desc: "Cuidados paliativos e pacientes acamados, pré-agendadas." },
+  { icon: ClipboardList, title: "Grupos de Educação em Saúde", desc: "Amigos da Saúde, Vida Leve, Fisioterapia UFN e Gestantes." },
+  { icon: FileText, title: "Renovação de Receitas", desc: "Solicite com antecedência na recepção — atendimento agendado." },
 ];
 
 const Services = () => {
@@ -25,11 +29,11 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {services.map((s, i) => (
             <article
               key={s.title}
-              style={{ animationDelay: `${i * 60}ms` }}
+              style={{ animationDelay: `${i * 50}ms` }}
               className="group animate-fade-in-up rounded-xl border border-border bg-gradient-card p-6 shadow-soft transition-base hover:-translate-y-1 hover:border-primary/30 hover:shadow-elevated"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-soft text-primary transition-base group-hover:bg-primary group-hover:text-primary-foreground">
@@ -40,6 +44,10 @@ const Services = () => {
             </article>
           ))}
         </div>
+
+        <p className="mx-auto mt-10 max-w-3xl rounded-xl border border-border bg-card p-4 text-center text-sm text-muted-foreground shadow-soft">
+          <strong className="text-foreground">Importante:</strong> sempre traga um documento de identificação (RG, CPF e Cartão SUS) para consultas, retirada de medicamentos e atualização de cadastro.
+        </p>
       </div>
     </section>
   );

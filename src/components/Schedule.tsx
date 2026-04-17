@@ -1,19 +1,23 @@
-import { Clock, Sun, Moon } from "lucide-react";
+import { Clock, Sun, Moon, AlertCircle } from "lucide-react";
 
 const schedule = [
   { day: "Segunda-feira", morning: "08:00 – 12:00", afternoon: "13:00 – 17:00" },
   { day: "Terça-feira", morning: "08:00 – 12:00", afternoon: "13:00 – 17:00" },
-  { day: "Quarta-feira", morning: "08:00 – 12:00", afternoon: "Reunião de equipe" },
+  { day: "Quarta-feira", morning: "08:00 – 12:00", afternoon: "Fechado · Reunião de equipe" },
   { day: "Quinta-feira", morning: "08:00 – 12:00", afternoon: "13:00 – 17:00" },
   { day: "Sexta-feira", morning: "08:00 – 12:00", afternoon: "13:00 – 17:00" },
   { day: "Sábado, Domingo e Feriados", morning: "Fechado", afternoon: "Fechado" },
 ];
 
 const highlights = [
-  { title: "Sala de Vacinação", time: "Seg–Sex · horário de atendimento" },
-  { title: "Coleta de Laboratório", time: "Terças e sextas · pela manhã" },
-  { title: "Atendimento Odontológico", time: "Seg–Sex · com agendamento" },
-  { title: "Reunião de equipe", time: "Quartas à tarde (sem atendimento)" },
+  { title: "Agendamento médico — Área 20", time: "Mensal" },
+  { title: "Agendamento médico — Área 19", time: "Quinzenal" },
+  { title: "Odontologia (agendamento)", time: "Quartas, 8h · presencial" },
+  { title: "Coleta laboratorial (LABVIDA)", time: "Terças e quintas, 8h" },
+  { title: "Sala de vacinação e teste do pezinho", time: "Terças e quintas · 8h–11h e 13h–16h" },
+  { title: "Curativos e testes rápidos", time: "Seg–Sex · 8h–11h e 13h–16h*" },
+  { title: "Acolhimento Área 20", time: "Terças e quintas · 8h–11h e 13h–16h" },
+  { title: "Acolhimento Área 19", time: "Seg–Sex · 8h–9h e 13h–14h" },
 ];
 
 const Schedule = () => {
@@ -26,7 +30,7 @@ const Schedule = () => {
             Quando você pode nos visitar
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Atendemos por ordem de chegada e por agendamento. Procedimentos específicos têm horários reservados.
+            Atendemos por agendamento e demanda espontânea. Quartas-feiras à tarde a unidade fica fechada para reunião de equipe.
           </p>
 
           <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card shadow-soft">
@@ -54,6 +58,11 @@ const Schedule = () => {
               </tbody>
             </table>
           </div>
+
+          <p className="mt-4 flex items-start gap-2 text-xs text-muted-foreground">
+            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            *Curativos e testes rápidos não atendem na quarta-feira à tarde.
+          </p>
         </div>
 
         <div className="rounded-2xl border border-secondary/40 bg-secondary-soft/40 p-7">
