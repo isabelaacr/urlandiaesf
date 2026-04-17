@@ -14,13 +14,58 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      appointments: {
+        Row: {
+          appointment_date: string
+          appointment_time: string
+          cpf: string
+          created_at: string
+          id: string
+          patient_name: string
+          phone: string
+          protocol: string
+          specialty: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_time: string
+          cpf: string
+          created_at?: string
+          id?: string
+          patient_name: string
+          phone: string
+          protocol: string
+          specialty: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_time?: string
+          cpf?: string
+          created_at?: string
+          id?: string
+          patient_name?: string
+          phone?: string
+          protocol?: string
+          specialty?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_appointment_by_protocol: {
+        Args: { _protocol: string }
+        Returns: {
+          appointment_date: string
+          appointment_time: string
+          created_at: string
+          patient_name: string
+          protocol: string
+          specialty: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
