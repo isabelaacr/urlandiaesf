@@ -1,22 +1,20 @@
 import { MapPin, Navigation, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SectionHeader from "./SectionHeader";
 
 const ADDRESS = "Rua Agostinho Scolari, 546 - Vila Urlândia, Santa Maria - RS";
 const MAPS_QUERY = encodeURIComponent(ADDRESS);
 
 const LocationMap = () => {
   return (
-    <section id="como-chegar" className="bg-muted/40 py-20">
+    <section id="como-chegar" className="section-y">
       <div className="container">
-        <div className="max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Localização</span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-4xl">
-            Como chegar até a unidade
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Estamos no coração da Vila Urlândia, com fácil acesso por transporte público e estacionamento na rua.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Localização"
+          title="Como chegar até a unidade"
+          description="Estamos no coração da Vila Urlândia, com fácil acesso por transporte público e estacionamento na rua."
+          align="center"
+        />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-stretch">
           <div className="space-y-5 rounded-2xl border border-border bg-card p-7 shadow-soft">

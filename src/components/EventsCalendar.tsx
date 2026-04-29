@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, CalendarDays, Users, Syringe, FlaskConical, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import SectionHeader from "./SectionHeader";
 
 type EventType = "grupo" | "coleta" | "vacina" | "campanha";
 
@@ -89,17 +90,14 @@ const EventsCalendar = () => {
     a.getDate() === b.getDate() && a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear();
 
   return (
-    <section id="calendario" className="py-20">
+    <section id="calendario" className="section-y bg-muted/40">
       <div className="container">
-        <div className="max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Calendário</span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-4xl">
-            Eventos e atividades do mês
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Acompanhe os grupos educativos, coletas de laboratório e campanhas de vacinação.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Calendário"
+          title="Eventos e atividades do mês"
+          description="Acompanhe os grupos educativos, coletas de laboratório e campanhas de vacinação."
+          align="center"
+        />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-start">
           <div className="rounded-2xl border border-border bg-card p-5 shadow-soft md:p-7">
