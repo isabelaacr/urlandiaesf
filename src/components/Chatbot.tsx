@@ -6,138 +6,230 @@ import { Bot, Send, User as UserIcon, Sparkles } from "lucide-react";
 type Msg = { role: "bot" | "user"; text: string };
 
 const QUICK = [
-  "Quais os horários de funcionamento?",
-  "Como agendar consulta médica?",
-  "Como agendar dentista?",
-  "Quando é a coleta de laboratório?",
-  "Quando funciona a sala de vacinas?",
-  "Quais grupos posso participar?",
-  "Como funciona o acolhimento?",
-  "Vocês fazem testes rápidos?",
-  "Quem é a equipe?",
-  "Qual o telefone e o Instagram?",
+  "Horários de funcionamento",
+  "Como agendar consulta médica",
+  "Como agendar dentista",
+  "Coleta de laboratório",
+  "Sala de vacinas",
+  "Acolhimento Área 19 e 20",
+  "Grupos da comunidade",
+  "Testes rápidos",
+  "Pré-natal e puericultura",
+  "Visitas domiciliares",
+  "Renovação de receitas",
+  "Documentos necessários",
+  "Localização e como chegar",
+  "Telefone e Instagram",
+  "Emergências",
 ];
 
 const FAQ: { keys: string[]; answer: string }[] = [
   {
-    keys: ["horário", "horarios", "horário de funcionamento", "funcionamento", "abre", "fecha", "aberto"],
+    keys: ["horário", "horarios", "funcionamento", "abre", "fecha", "aberto", "que horas", "expediente"],
     answer:
-      "Atendemos de **segunda a sexta-feira**, das **8h ao meio-dia** e das **13h às 17h**. **Quartas-feiras à tarde a unidade está fechada** para reunião de equipe. Não há atendimento aos fins de semana e feriados. Em emergências, ligue 192 (SAMU).",
+      "Atendemos de **segunda a sexta-feira**, das **8h ao meio-dia** e das **13h às 17h**.\n• **Quartas à tarde a unidade fica fechada** para reunião de equipe.\n• **Sábados, domingos e feriados:** fechado.\nEm emergências, ligue **192 (SAMU)**.",
   },
   {
-    keys: ["agendar médico", "agendar medico", "consulta médica", "consulta medica", "área 19", "area 19", "área 20", "area 20", "marcar consulta"],
+    keys: ["agendar médico", "agendar medico", "consulta médica", "consulta medica", "marcar consulta", "marcar médico", "marcar medico"],
     answer:
-      "Os agendamentos médicos seguem a divisão por área: **Área 19 — quinzenal** e **Área 20 — mensal**. Você pode agendar pela seção **Agendar consulta** desta página, na recepção ou pelo telefone **(55) 3174-1588 – opção 1**. Tenha em mãos seu Cartão SUS.",
+      "Os agendamentos médicos seguem a **divisão por área**:\n• **Área 19 — quinzenal**\n• **Área 20 — mensal**\nAgende pela seção **Agendar consulta** no topo desta página, na **recepção** ou pelo telefone **(55) 3174-1588 – opção 1**. Tenha em mãos seu **Cartão SUS**.",
   },
   {
-    keys: ["agendar", "marcar", "agendamento"],
+    keys: ["área 19", "area 19", "minha área", "minha area", "qual área", "qual area"],
     answer:
-      "Você pode agendar pela seção **Agendar consulta**, presencialmente na recepção ou pelo telefone **(55) 3174-1588 – opção 1**. Médico Área 19: quinzenal · Área 20: mensal · Odontologia: quartas, 8h.",
+      "**Área 19:** acolhimento de **segunda a sexta, 8h–9h e 13h–14h**. Agendamento médico **quinzenal**. Não sabe sua área? Pergunte ao seu **Agente Comunitário de Saúde (ACS)** ou na recepção.",
   },
   {
-    keys: ["dentista", "odontológico", "odontologico", "odonto"],
+    keys: ["área 20", "area 20"],
     answer:
-      "O **agendamento odontológico** é feito **às quartas-feiras, às 8h, presencialmente** na unidade. **Idosos** podem agendar **por telefone**: (55) 3174-1588 – opção 1.",
+      "**Área 20:** acolhimento **terças e quintas, 8h–11h e 13h–16h**. Agendamento médico **mensal**. Em outros turnos, a equipe avalia urgência e risco.",
   },
   {
-    keys: ["onde", "endereço", "endereco", "localização", "localizacao", "fica", "rua"],
+    keys: ["agendar", "marcar", "agendamento", "como agendar"],
     answer:
-      "Estamos na **Rua Agostinho Scolari, 546 – Vila Urlândia**. Atendemos de segunda a sexta no horário regular.",
+      "Você pode agendar de 3 formas:\n1. **Online** — formulário **Agendar consulta** desta página\n2. **Presencial** — recepção da unidade\n3. **Telefone** — **(55) 3174-1588 – opção 1**\nEspecialidades: médico (Área 19 quinzenal · Área 20 mensal), enfermagem, odontologia (quartas 8h), pré-natal, puericultura e preventivo.",
   },
   {
-    keys: ["vacina", "vacinação", "vacinacao", "sala de vacina", "pezinho", "teste do pezinho"],
+    keys: ["dentista", "odontológico", "odontologico", "odonto", "dente", "boca"],
     answer:
-      "A **sala de vacinas** funciona às **terças e quintas-feiras**, das **8h às 11h e 13h às 16h**. Realizamos vacinas do calendário do SUS e o **teste do pezinho**. Traga **documento de identificação** e, para crianças, a **carteirinha de vacinação**.",
+      "**Odontologia** — agendamento **às quartas-feiras, 8h, presencialmente** na unidade.\n👵 **Idosos** podem agendar **por telefone**: (55) 3174-1588 – opção 1.\nAtendimento para toda a família com nosso(a) cirurgião(ã)-dentista.",
   },
   {
-    keys: ["coleta", "laboratório", "laboratorio", "labvida", "exame de sangue", "jejum"],
+    keys: ["onde", "endereço", "endereco", "localização", "localizacao", "fica", "rua", "como chegar", "chegar", "mapa"],
     answer:
-      "A **coleta laboratorial (LABVIDA)** acontece **às terças e quintas-feiras, às 8h**. Lembre-se do **jejum** quando indicado pelo médico e leve seu pedido de exame e Cartão SUS.",
+      "📍 **Rua Agostinho Scolari, 546 – Vila Urlândia, Santa Maria/RS**.\nNa página há a seção **Localização** com mapa e botão para traçar rota direto pelo Google Maps.",
   },
   {
-    keys: ["curativo", "curativos", "procedimento", "procedimentos"],
+    keys: ["vacina", "vacinação", "vacinacao", "sala de vacina", "imunização", "imunizacao"],
     answer:
-      "Realizamos **curativos e procedimentos** todos os dias da semana, das **8h às 11h e 13h às 16h** — exceto **quarta-feira à tarde**. Não é necessário agendar.",
+      "💉 **Sala de vacinas:** **terças e quintas-feiras**, das **8h às 11h** e **13h às 16h**.\nAplicamos vacinas do **calendário do SUS** e fazemos o **teste do pezinho**.\nLeve **documento de identificação** e, para crianças, a **carteirinha de vacinação**.",
   },
   {
-    keys: ["teste rápido", "teste rapido", "hiv", "sífilis", "sifilis", "hepatite", "gravidez"],
+    keys: ["pezinho", "teste do pezinho"],
     answer:
-      "Oferecemos **testes rápidos** para **HIV, sífilis, hepatites B e C**, todos os dias das **8h às 11h e 13h às 16h** (exceto quarta à tarde). O **teste rápido de gravidez** requer **mínimo de 7 dias de atraso menstrual** e **4 horas de retenção urinária**.",
+      "🍼 O **teste do pezinho** é feito na sala de vacinação às **terças e quintas, 8h–11h e 13h–16h**. Leve a **certidão de nascimento** e a **carteirinha do bebê**.",
   },
   {
-    keys: ["acolhimento", "demanda espontânea", "demanda espontanea", "urgência", "urgencia"],
+    keys: ["coleta", "laboratório", "laboratorio", "labvida", "exame de sangue", "jejum", "exame"],
     answer:
-      "**Acolhimento Área 19:** segunda a sexta, das **8h às 9h** e das **13h às 14h**. **Acolhimento Área 20:** **terças e quintas**, das **8h às 11h e 13h às 16h**. Em outros turnos, a equipe avalia urgência e risco.",
+      "🧪 **Coleta laboratorial (LABVIDA):** **terças e quintas-feiras, às 8h**.\n• Faça **jejum** quando indicado pelo médico\n• Leve **pedido de exame** e **Cartão SUS**",
   },
   {
-    keys: ["grupo", "grupos", "amigos da saúde", "vida leve", "fisioterapia", "ufn", "gestante"],
+    keys: ["curativo", "curativos"],
     answer:
-      "Temos **4 grupos** abertos à comunidade:\n• **Amigos da Saúde** — segundas, 8h\n• **Vida Leve** — terças, 14h\n• **Fisioterapia UFN** — quartas, 8h\n• **Gestantes** — mensal (confirme a data na recepção)",
+      "🩹 **Curativos:** todos os dias da semana, das **8h às 11h e 13h às 16h** — **exceto quarta-feira à tarde**. Não precisa agendar.",
   },
   {
-    keys: ["reunião", "reuniao", "quarta", "quartas"],
+    keys: ["procedimento", "procedimentos", "sala de procedimento"],
     answer:
-      "Toda **quarta-feira à tarde** a unidade fica **fechada** para reunião de equipe. Pela manhã, o atendimento ocorre normalmente.",
+      "Realizamos **procedimentos** (curativos, retirada de pontos, nebulização, medicação) **seg–sex, 8h–11h e 13h–16h** (exceto quarta à tarde).",
   },
   {
-    keys: ["equipe", "profissionais", "médicos", "medicos", "enfermeiros", "agentes", "acs"],
+    keys: ["teste rápido", "teste rapido", "hiv", "sífilis", "sifilis", "hepatite", "ist"],
     answer:
-      "Nossa equipe tem **2 médicos(as), 2 enfermeiros(as), 2 técnicos(as) de enfermagem, 8 agentes comunitários de saúde e 1 dentista**, com média de **40 horas semanais**.",
+      "🧬 **Testes rápidos:** **HIV, sífilis, hepatites B e C** — todos os dias, **8h–11h e 13h–16h** (exceto quarta à tarde). Resultado na hora, **gratuito e sigiloso**.",
   },
   {
-    keys: ["estrutura", "instalações", "instalacoes", "consultório", "consultorio", "salas"],
+    keys: ["gravidez", "teste de gravidez", "grávida", "gravida"],
     answer:
-      "A unidade conta com **recepção, sala de acolhimento, consultórios médico e de enfermagem, sala de procedimentos, sala de vacinação e acesso à internet**. Não temos farmácia completa, apenas dispensário para alguns medicamentos.",
+      "🤰 **Teste rápido de gravidez:** requer **mínimo de 7 dias de atraso menstrual** e **4 horas de retenção urinária**. Disponível **seg–sex, 8h–11h e 13h–16h** (exceto quarta à tarde).",
   },
   {
-    keys: ["receita", "renovação", "renovacao", "medicamento", "remédio", "remedio"],
+    keys: ["acolhimento", "demanda espontânea", "demanda espontanea", "urgência", "urgencia", "passar mal"],
     answer:
-      "A **renovação de receitas** deve ser **agendada previamente** na recepção ou pelo telefone **(55) 3174-1588 – opção 1**.",
+      "**Acolhimento:** escuta qualificada para quem chega sem agendamento.\n• **Área 19:** seg–sex, **8h–9h** e **13h–14h**\n• **Área 20:** terças e quintas, **8h–11h** e **13h–16h**\nNos demais turnos, a equipe avalia **urgência e risco**. Em emergência, ligue **192 (SAMU)**.",
   },
   {
-    keys: ["visita", "domiciliar", "acamado", "paliativo", "paliativos"],
+    keys: ["grupo", "grupos", "amigos da saúde", "vida leve", "fisioterapia", "ufn", "atividade"],
     answer:
-      "Realizamos **visitas domiciliares** para pacientes **acamados** e em **cuidados paliativos**. As visitas do enfermeiro são **pré-agendadas**. Procure seu agente comunitário de saúde ou a recepção.",
+      "👥 Temos **4 grupos** abertos à comunidade — gratuitos:\n• **Amigos da Saúde** — segundas, **8h** (idosos)\n• **Vida Leve** — terças, **14h** (hábitos saudáveis)\n• **Fisioterapia UFN** — quartas, **8h** (parceria com a UFN)\n• **Gestantes** — **mensal** (confirme a data na recepção)",
   },
   {
-    keys: ["pré-natal", "pre-natal", "pre natal", "prenatal", "puericultura", "criança", "crianca"],
+    keys: ["gestante", "gestantes", "pré-natal", "pre-natal", "pre natal", "prenatal"],
     answer:
-      "Oferecemos **pré-natal** para gestantes e **puericultura** para acompanhamento do crescimento das crianças. Agende sua consulta na recepção ou pelo formulário desta página.",
+      "🤰 **Pré-natal completo** com a equipe médica e de enfermagem. Agende sua primeira consulta na **recepção** ou pelo formulário do site.\nTambém oferecemos o **Grupo de Gestantes** (mensal), com orientações sobre gestação, parto e amamentação.",
+  },
+  {
+    keys: ["puericultura", "criança", "crianca", "bebê", "bebe", "filho"],
+    answer:
+      "👶 **Puericultura:** acompanhamento do **crescimento e desenvolvimento** da criança, vacinação e orientações. Agende na recepção. Leve a **carteirinha da criança**.",
   },
   {
     keys: ["preventivo", "citopatológico", "citopatologico", "papanicolau", "colo do útero", "colo do utero"],
     answer:
-      "A **coleta de exame citopatológico (preventivo do colo do útero)** é realizada com a equipe de enfermagem. Agende na recepção ou pelo telefone (55) 3174-1588 – opção 1.",
+      "🌸 **Coleta de citopatológico (preventivo do colo do útero)** com a equipe de enfermagem. Agende na recepção ou pelo telefone **(55) 3174-1588 – opção 1**.",
+  },
+  {
+    keys: ["reunião", "reuniao", "quarta", "quartas"],
+    answer:
+      "Toda **quarta-feira à tarde** a unidade fica **fechada** para reunião de equipe. **Pela manhã** o atendimento ocorre normalmente.",
+  },
+  {
+    keys: ["equipe", "profissionais", "médicos", "medicos", "enfermeiros", "agentes", "acs", "quem trabalha"],
+    answer:
+      "👩‍⚕️ Nossa equipe:\n• **2 médicos(as)**\n• **2 enfermeiros(as)**\n• **2 técnicos(as) de enfermagem**\n• **8 agentes comunitários de saúde (ACS)**\n• **1 cirurgião(ã)-dentista**\n• Equipe de apoio (recepção, higienização, gestão)\nCarga horária média de **40h semanais**.",
+  },
+  {
+    keys: ["estrutura", "instalações", "instalacoes", "consultório", "consultorio", "salas"],
+    answer:
+      "🏥 A unidade tem: **recepção, sala de acolhimento, consultórios médico e de enfermagem, sala de procedimentos, sala de vacinação e acesso à internet**. Não temos farmácia completa, apenas **dispensário** com alguns medicamentos.",
+  },
+  {
+    keys: ["farmácia", "farmacia", "remédio de graça", "medicamento de graça"],
+    answer:
+      "💊 A unidade **não tem farmácia completa** — apenas um **dispensário** com alguns medicamentos. Para receber medicações pelo SUS, procure a **Farmácia Municipal** com sua receita.",
+  },
+  {
+    keys: ["receita", "renovação", "renovacao", "medicamento", "remédio", "remedio", "uso contínuo", "uso continuo"],
+    answer:
+      "📝 **Renovação de receitas** deve ser **agendada previamente** na recepção ou pelo telefone **(55) 3174-1588 – opção 1**. Leve a **última receita** e o **Cartão SUS**.",
+  },
+  {
+    keys: ["visita", "domiciliar", "acamado", "paliativo", "paliativos", "casa"],
+    answer:
+      "🏠 Realizamos **visitas domiciliares** para **acamados** e em **cuidados paliativos**. As visitas do enfermeiro são **pré-agendadas**. Procure seu **agente comunitário de saúde (ACS)** ou a recepção.",
   },
   {
     keys: ["telefone", "contato", "ligar", "número", "numero"],
-    answer: "Nosso telefone é **(55) 3174-1588 – opção 1**. Atendemos no horário de funcionamento da unidade.",
+    answer: "📞 **(55) 3174-1588 – opção 1**\nAtendimento no horário da unidade (seg–sex, 8h–12h e 13h–17h).",
   },
   {
     keys: ["instagram", "rede social", "redes sociais", "facebook", "social"],
-    answer: "Siga a gente no Instagram: **@esf_saocarlos** 📲 Lá divulgamos campanhas, horários especiais e dicas de saúde.",
+    answer: "📲 Siga **@esf_saocarlos** no Instagram. Lá divulgamos campanhas, horários especiais, mutirões e dicas de saúde.",
   },
   {
     keys: ["documento", "documentos", "levar", "rg", "cpf", "cartão sus", "cartao sus", "cadastro"],
     answer:
-      "Traga sempre **RG, CPF e Cartão SUS** para consultas, retirada de medicamentos e atualização de cadastro. Para crianças, leve a **certidão de nascimento e a carteira de vacinação**.",
+      "📄 Traga sempre:\n• **RG e CPF**\n• **Cartão SUS**\n• Para crianças: **certidão de nascimento** + **carteirinha de vacinação**\n• Para renovação de receita: **última receita**\n• Para exames: **pedido médico**",
   },
   {
-    keys: ["cancelar", "remarcar", "desmarcar", "reagendar"],
+    keys: ["cancelar", "remarcar", "desmarcar", "reagendar", "não vou poder", "nao vou poder"],
     answer:
-      "Para cancelar ou remarcar, faça um novo agendamento no site ou ligue para **(55) 3174-1588 – opção 1** com até 24 horas de antecedência. Isso libera vagas para outros pacientes.",
+      "Para **cancelar ou remarcar**, faça um novo agendamento no site ou ligue para **(55) 3174-1588 – opção 1** com **até 24 horas de antecedência**. Isso libera vagas para outros pacientes.",
+  },
+  {
+    keys: ["emergência", "emergencia", "samu", "192", "bombeiros", "193"],
+    answer:
+      "🚨 **Em emergência, NÃO espere atendimento na ESF.**\n• **SAMU: 192**\n• **Bombeiros: 193**\n• **Disque Saúde: 136**\nProcure também a **UPA mais próxima**.",
+  },
+  {
+    keys: ["calendário", "calendario", "agenda do mês", "agenda do mes", "eventos"],
+    answer:
+      "📅 Veja o **Calendário** nesta página: lá estão todos os **grupos recorrentes**, **coletas de laboratório**, **dias de vacinação** e **campanhas** do mês.",
+  },
+  {
+    keys: ["protocolo", "comprovante", "voucher", "pdf", "confirmação", "confirmacao"],
+    answer:
+      "Ao agendar pelo site, você recebe um **número de protocolo** e pode **baixar o comprovante em PDF** com todos os dados da consulta. Apresente o protocolo na recepção no dia.",
+  },
+  {
+    keys: ["idoso", "idosa", "terceira idade", "hiperdia", "hipertensão", "hipertensao", "diabetes"],
+    answer:
+      "👵 **Atendimento ao idoso:** consultas médicas e de enfermagem, **Grupo Amigos da Saúde** (segundas, 8h) e agendamento **odontológico por telefone**. Para hipertensão e diabetes, há acompanhamento contínuo com a equipe.",
+  },
+  {
+    keys: ["saúde mental", "saude mental", "psicólogo", "psicologo", "depressão", "depressao", "ansiedade"],
+    answer:
+      "💚 A ESF acolhe demandas de **saúde mental** com escuta qualificada. Procure o **acolhimento** da sua área. Para casos que necessitem psicólogo/psiquiatra, fazemos o **encaminhamento à rede municipal (CAPS)**.",
+  },
+  {
+    keys: ["reclamação", "reclamacao", "ouvidoria", "elogio", "sugestão", "sugestao"],
+    answer:
+      "📢 Reclamações, elogios e sugestões podem ser feitos na **recepção** ou pela **Ouvidoria da Saúde de Santa Maria**. Sua opinião nos ajuda a melhorar.",
+  },
+  {
+    keys: ["cartão sus", "cartao sus", "fazer cartão", "fazer cartao", "tirar sus"],
+    answer:
+      "🪪 Para **fazer ou atualizar o Cartão SUS**, vá à **recepção da unidade** com **RG, CPF e comprovante de residência**.",
+  },
+  {
+    keys: ["mudança", "mudanca", "novo morador", "me mudei", "cadastrar"],
+    answer:
+      "🏘️ Novo morador da Vila Urlândia? Procure a recepção com **RG, CPF, Cartão SUS e comprovante de residência** para se **cadastrar** no território. O **agente comunitário (ACS)** da sua rua passará para confirmar o cadastro.",
   },
 ];
 
 function findAnswer(input: string): string {
   const t = input.toLowerCase();
+  // Score-based matching: prefer entries with the most/longest key matches
+  let best: { score: number; answer: string } | null = null;
   for (const item of FAQ) {
-    if (item.keys.some((k) => t.includes(k))) return item.answer;
+    let score = 0;
+    for (const k of item.keys) {
+      if (t.includes(k)) score += k.length;
+    }
+    if (score > 0 && (!best || score > best.score)) best = { score, answer: item.answer };
   }
-  if (/(oi|olá|ola|bom dia|boa tarde|boa noite)/.test(t))
-    return "Olá! 👋 Sou o assistente virtual da ESF São Carlos/Urlândia. Posso ajudar com horários, agendamento, serviços, vacinação, coleta de laboratório e localização. O que você gostaria de saber?";
-  if (/(obrigad|valeu|vlw)/.test(t)) return "Por nada! Sempre que precisar, é só chamar. Cuide-se! 💚";
-  return "Não encontrei essa informação aqui. Para detalhes específicos, ligue para **(55) 3174-1588 – opção 1** ou pergunte sobre: horários, agendamento por área, odontologia, vacinação, coleta de laboratório, testes rápidos, grupos, acolhimento, equipe, estrutura ou documentos.";
+  if (best) return best.answer;
+
+  if (/(oi|olá|ola|bom dia|boa tarde|boa noite|e aí|e ai)/.test(t))
+    return "Olá! 👋 Sou o assistente da **ESF São Carlos/Urlândia**. Posso ajudar com **horários, agendamento, vacinação, coleta, grupos, acolhimento, documentos** e mais. O que você gostaria de saber?";
+  if (/(obrigad|valeu|vlw|grato|grata)/.test(t))
+    return "Por nada! 💚 Sempre que precisar, é só chamar.";
+  if (/(tchau|até|ate logo|adeus)/.test(t))
+    return "Até logo! Cuide-se. 💚";
+
+  return "Não encontrei essa informação. Tente perguntar sobre: **horários, agendamento (Área 19 ou 20), odontologia, vacinação, coleta de laboratório, testes rápidos, pré-natal, grupos, acolhimento, equipe, estrutura, documentos, receitas, localização**. Ou ligue **(55) 3174-1588 – opção 1**.";
 }
 
 // Renderização simples de **negrito**
