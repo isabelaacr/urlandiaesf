@@ -112,11 +112,33 @@
   h1, h2, h3, h4, h5 {
     @apply font-display;
   }
+
+  /* Acessibilidade: ancoragem respeita o header fixo (~64px + faixa) */
+  section[id] {
+    scroll-margin-top: 88px;
+  }
+
+  /* Foco visível e acessível em toda interação por teclado */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
 }
 
 @layer components {
   .sus-stripe {
     background: var(--gradient-band);
+  }
+
+  /* Padronização vertical das seções */
+  .section-y {
+    @apply py-14 md:py-20;
+  }
+
+  /* Skip link para leitores de tela / teclado */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50
+           focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm
+           focus:font-bold focus:text-primary-foreground focus:shadow-elevated;
   }
 }
 
