@@ -51,15 +51,13 @@ const Groups = () => {
               style={{ animationDelay: `${i * 80}ms` }}
               className="animate-fade-in-up overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-base hover:-translate-y-1 hover:shadow-elevated"
             >
-              <div className="flex items-start gap-5 p-6">
-                <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl shadow-soft ${g.accent}`}>
-                  <g.icon className="h-7 w-7" />
+              <div className="p-5">
+                <div className={`flex h-11 w-11 items-center justify-center rounded-lg shadow-soft ${g.accent}`}>
+                  <g.icon className="h-5 w-5" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-display text-lg font-extrabold text-foreground">{g.name}</h3>
-                  <p className="mt-1 text-sm font-semibold text-primary">{g.schedule}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.desc}</p>
-                </div>
+                <h3 className="mt-3 font-display text-base font-extrabold text-foreground">{g.name}</h3>
+                <p className="mt-1 text-sm font-semibold text-primary">{g.schedule}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.desc}</p>
               </div>
             </article>
           ))}
