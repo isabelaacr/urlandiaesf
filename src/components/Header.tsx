@@ -28,7 +28,7 @@ const Header = () => {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-5 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="text-sm font-semibold text-foreground/80 transition-base hover:text-primary">
               {n.label}
@@ -36,7 +36,7 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <a href="tel:+555531741588" className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-primary">
             <Phone className="h-3.5 w-3.5 text-primary" />
             (55) 3174-1588
@@ -47,7 +47,7 @@ const Header = () => {
         </div>
 
         <button
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
           aria-label="Abrir menu"
           onClick={() => setOpen((v) => !v)}
         >
@@ -56,7 +56,7 @@ const Header = () => {
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background md:hidden">
+        <div className="border-t border-border bg-background lg:hidden">
           <nav className="container flex flex-col py-3">
             {NAV.map((n) => (
               <a

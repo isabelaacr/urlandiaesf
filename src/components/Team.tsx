@@ -9,21 +9,20 @@ const team = [
   { icon: UserCog, role: "Equipe de apoio", count: null, desc: "Recepção, higienização e gestão da unidade." },
 ];
 
+import SectionHeader from "./SectionHeader";
+
 const Team = () => {
   return (
-    <section id="equipe" className="py-20">
+    <section id="equipe" className="section-y bg-muted/40">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Nossa equipe</span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-4xl">
-            Profissionais cuidando de você
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Equipe multiprofissional com carga horária média de <strong className="text-foreground">40 horas semanais</strong>, dedicada à saúde da comunidade do território.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Nossa equipe"
+          title="Profissionais cuidando de você"
+          description="Equipe multiprofissional com carga horária média de 40 horas semanais, dedicada à saúde da comunidade do território."
+          align="center"
+        />
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((m, i) => (
             <article
               key={m.role}

@@ -261,7 +261,7 @@ const Chatbot = () => {
   };
 
   return (
-    <section id="duvidas" className="py-20">
+    <section id="duvidas" className="section-y bg-muted/40">
       <div className="container grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-start">
         <div className="space-y-5">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Tire suas dúvidas</span>

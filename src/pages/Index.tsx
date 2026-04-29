@@ -13,8 +13,9 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <a href="#main" className="skip-link">Pular para o conteúdo</a>
       <Header />
-      <main>
+      <main id="main">
         <Hero />
         <BookingForm />
         <Services />

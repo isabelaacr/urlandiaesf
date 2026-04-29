@@ -31,36 +31,33 @@ const groups = [
   },
 ];
 
+import SectionHeader from "./SectionHeader";
+
 const Groups = () => {
   return (
-    <section id="grupos" className="bg-muted/40 py-20">
+    <section id="grupos" className="section-y">
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Educação em saúde</span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-4xl">
-            Grupos da comunidade
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Participe das atividades coletivas da ESF São Carlos. São gratuitas, abertas à comunidade e fortalecem o cuidado em rede.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Educação em saúde"
+          title="Grupos da comunidade"
+          description="Participe das atividades coletivas da ESF São Carlos. São gratuitas, abertas à comunidade e fortalecem o cuidado em rede."
+          align="center"
+        />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {groups.map((g, i) => (
             <article
               key={g.name}
               style={{ animationDelay: `${i * 80}ms` }}
               className="animate-fade-in-up overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-base hover:-translate-y-1 hover:shadow-elevated"
             >
-              <div className="flex items-start gap-5 p-6">
-                <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl shadow-soft ${g.accent}`}>
-                  <g.icon className="h-7 w-7" />
+              <div className="p-5">
+                <div className={`flex h-11 w-11 items-center justify-center rounded-lg shadow-soft ${g.accent}`}>
+                  <g.icon className="h-5 w-5" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-display text-lg font-extrabold text-foreground">{g.name}</h3>
-                  <p className="mt-1 text-sm font-semibold text-primary">{g.schedule}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.desc}</p>
-                </div>
+                <h3 className="mt-3 font-display text-base font-extrabold text-foreground">{g.name}</h3>
+                <p className="mt-1 text-sm font-semibold text-primary">{g.schedule}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.desc}</p>
               </div>
             </article>
           ))}

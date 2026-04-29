@@ -208,7 +208,7 @@ const BookingForm = () => {
   };
 
   return (
-    <section id="agendar" className="bg-muted/40 py-20">
+    <section id="agendar" className="section-y bg-muted/40">
       <div className="container grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
         <div className="space-y-6">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Agendamento</span>
