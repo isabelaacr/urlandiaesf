@@ -69,28 +69,28 @@ const BookingForm = () => {
     }
 
     setSubmitting(true);
-    const protocol = generateProtocol();
 
-    const { error } = await supabase.from("appointments").insert({
-      protocol,
-      patient_name: form.name,
-      cpf: form.cpf,
-      phone: form.phone,
-      specialty: form.specialty,
-      appointment_date: form.date,
-      appointment_time: form.time,
+    const { data, error } = await supabase.functions.invoke("create-appointment", {
+      body: {
+        patient_name: form.name,
+        cpf: form.cpf,
+        phone: form.phone,
+        specialty: form.specialty,
+        appointment_date: form.date,
+        appointment_time: form.time,
+      },
     });
 
     setSubmitting(false);
 
-    if (error) {
+    if (error || !data?.protocol) {
       console.error(error);
       toast.error("Não foi possível salvar o agendamento. Tente novamente.");
       return;
     }
 
     const appt: Appointment = {
-      protocol,
+      protocol: data.protocol as string,
       name: form.name,
       specialty: form.specialty,
       date: form.date,
