@@ -1,24 +1,32 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Heart, Phone, Menu, X, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const NAV = [
-  { href: "#agendar", label: "Agendar" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#horarios", label: "Horários" },
-  { href: "#calendario", label: "Calendário" },
-  { href: "#como-chegar", label: "Localização" },
-  { href: "#duvidas", label: "Dúvidas" },
+  { to: "/", label: "Início", end: true },
+  { to: "/servicos", label: "Serviços" },
+  { to: "/horarios", label: "Horários" },
+  { to: "/calendario", label: "Calendário" },
+  { to: "/equipe", label: "Equipe" },
+  { to: "/localizacao", label: "Localização" },
 ];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    cn(
+      "text-sm font-semibold transition-base hover:text-primary",
+      isActive ? "text-primary" : "text-foreground/80",
+    );
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/90 backdrop-blur-md">
       <div className="sus-stripe h-1.5 w-full" aria-hidden />
       <div className="container flex h-16 items-center justify-between gap-4">
-        <a href="#inicio" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+        <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-soft">
             <Heart className="h-5 w-5" fill="currentColor" />
           </div>
@@ -26,13 +34,13 @@ const Header = () => {
             <p className="font-display text-base font-extrabold text-primary">ESF São Carlos</p>
             <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Vila Urlândia · SUS</p>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-5 lg:flex">
           {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="text-sm font-semibold text-foreground/80 transition-base hover:text-primary">
+            <NavLink key={n.to} to={n.to} end={n.end} className={linkClass}>
               {n.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -42,7 +50,7 @@ const Header = () => {
             (55) 3174-1588
           </a>
           <Button asChild size="sm" className="font-bold">
-            <a href="#agendar"><Calendar className="mr-1.5 h-4 w-4" /> Agendar</a>
+            <Link to="/agendar"><Calendar className="mr-1.5 h-4 w-4" /> Agendar</Link>
           </Button>
         </div>
 
@@ -59,15 +67,28 @@ const Header = () => {
         <div className="border-t border-border bg-background lg:hidden">
           <nav className="container flex flex-col py-3">
             {NAV.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
+              <NavLink
+                key={n.to}
+                to={n.to}
+                end={n.end}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-2 py-2.5 text-sm font-semibold text-foreground/85 hover:bg-muted hover:text-primary"
+                className={({ isActive }) =>
+                  cn(
+                    "rounded-md px-2 py-2.5 text-sm font-semibold hover:bg-muted hover:text-primary",
+                    isActive ? "bg-primary-soft text-primary" : "text-foreground/85",
+                  )
+                }
               >
                 {n.label}
-              </a>
+              </NavLink>
             ))}
+            <Link
+              to="/agendar"
+              onClick={() => setOpen(false)}
+              className="mt-2 flex items-center justify-center gap-2 rounded-md bg-primary px-3 py-2.5 text-sm font-bold text-primary-foreground"
+            >
+              <Calendar className="h-4 w-4" /> Agendar consulta
+            </Link>
             <a
               href="tel:+555531741588"
               className="mt-2 flex items-center gap-2 rounded-md bg-primary-soft px-3 py-2.5 text-sm font-bold text-primary"
