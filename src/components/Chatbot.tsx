@@ -62,12 +62,12 @@ const FAQ: { keys: string[]; answer: string }[] = [
   {
     keys: ["vacina", "vacinação", "vacinacao", "sala de vacina", "imunização", "imunizacao"],
     answer:
-      "💉 **Sala de vacinas:** **terças e quintas-feiras**, das **8h às 11h** e **13h às 16h**.\nAplicamos vacinas do **calendário do SUS** e fazemos o **teste do pezinho**.\nLeve **documento de identificação** e, para crianças, a **carteirinha de vacinação**.",
+      "💉 **Sala de vacinas:** **terças e quintas-feiras**, das **8h às 11h** e **13h às 16h**.\nAplicamos as vacinas do **calendário do SUS**.\nLeve **documento de identificação** e, para crianças, a **carteirinha de vacinação**.",
   },
   {
     keys: ["pezinho", "teste do pezinho"],
     answer:
-      "🍼 O **teste do pezinho** é feito na sala de vacinação às **terças e quintas, 8h–11h e 13h–16h**. Leve a **certidão de nascimento** e a **carteirinha do bebê**.",
+      "🍼 O **teste do pezinho** é ofertado **todos os dias** na unidade. Leve a **certidão de nascimento** e a **carteirinha do bebê**.",
   },
   {
     keys: ["coleta", "laboratório", "laboratorio", "labvida", "exame de sangue", "jejum", "exame"],
@@ -85,14 +85,14 @@ const FAQ: { keys: string[]; answer: string }[] = [
       "Realizamos **procedimentos** (curativos, retirada de pontos, nebulização, medicação) **seg–sex, 8h–11h e 13h–16h** (exceto quarta à tarde).",
   },
   {
-    keys: ["teste rápido", "teste rapido", "hiv", "sífilis", "sifilis", "hepatite", "ist"],
+    keys: ["teste rápido", "teste rapido", "hiv", "sífilis", "sifilis", "hepatite", "ist", "covid", "dengue"],
     answer:
-      "🧬 **Testes rápidos:** **HIV, sífilis, hepatites B e C** — todos os dias, **8h–11h e 13h–16h** (exceto quarta à tarde). Resultado na hora, **gratuito e sigiloso**.",
+      "🧬 **Testes rápidos disponíveis na unidade:**\n• **ISTs:** HIV, sífilis, hepatites B e C\n• **Gravidez**\n• **COVID-19**\n• **Dengue**\nRealizados **seg–sex, 8h–11h e 13h–16h** (exceto quarta à tarde). Resultado na hora, **gratuito e sigiloso**.",
   },
   {
     keys: ["gravidez", "teste de gravidez", "grávida", "gravida"],
     answer:
-      "🤰 **Teste rápido de gravidez:** requer **mínimo de 7 dias de atraso menstrual** e **4 horas de retenção urinária**. Disponível **seg–sex, 8h–11h e 13h–16h** (exceto quarta à tarde).",
+      "🤰 **Teste rápido de gravidez:**\n• Mínimo de **7 dias de atraso menstrual**\n• **2 horas de retenção urinária** (de preferência a **primeira urina da manhã**)\nDisponível **seg–sex, 8h–11h e 13h–16h** (exceto quarta à tarde).",
   },
   {
     keys: ["acolhimento", "demanda espontânea", "demanda espontanea", "urgência", "urgencia", "passar mal"],
@@ -155,7 +155,7 @@ const FAQ: { keys: string[]; answer: string }[] = [
   },
   {
     keys: ["instagram", "rede social", "redes sociais", "facebook", "social"],
-    answer: "📲 Siga **@esf_saocarlos** no Instagram. Lá divulgamos campanhas, horários especiais, mutirões e dicas de saúde.",
+    answer: "📲 Siga a ESF São Carlos/Urlândia:\n• **Instagram:** @esf_saocarlos\n• **Facebook:** facebook.com/profile.php?id=61579852984607\nDivulgamos campanhas, horários especiais, mutirões e dicas de saúde.",
   },
   {
     keys: ["documento", "documentos", "levar", "rg", "cpf", "cartão sus", "cartao sus", "cadastro"],
