@@ -1,4 +1,4 @@
-import { Heart, MapPin, Phone, Instagram } from "lucide-react";
+import { Heart, MapPin, Phone, Instagram, Facebook } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -27,6 +27,10 @@ const Footer = () => {
             <li className="flex items-center gap-2.5">
               <Instagram className="h-4 w-4 text-secondary" />
               <a href="https://instagram.com/esf_saocarlos" target="_blank" rel="noopener noreferrer" className="hover:underline">@esf_saocarlos</a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Facebook className="h-4 w-4 text-secondary" />
+              <a href="https://www.facebook.com/profile.php?id=61579852984607&locale=pt_BR" target="_blank" rel="noopener noreferrer" className="hover:underline">ESF São Carlos no Facebook</a>
             </li>
           </ul>
         </div>

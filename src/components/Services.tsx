@@ -1,15 +1,16 @@
-import { Stethoscope, Syringe, Baby, HeartPulse, TestTube2, Smile, Bandage, ClipboardList, Home, FileText, Sparkles, ShieldPlus } from "lucide-react";
+import { Stethoscope, Syringe, Baby, HeartPulse, TestTube2, Smile, Bandage, ClipboardList, Home, FileText, Sparkles, ShieldPlus, Footprints } from "lucide-react";
 
 const services = [
   { icon: Stethoscope, title: "Consultas Médicas", desc: "Clínica geral agendada e demanda espontânea com 2 médicos(as)." },
   { icon: HeartPulse, title: "Consultas de Enfermagem", desc: "Acolhimento, escuta qualificada e orientações com a equipe." },
   { icon: Baby, title: "Puericultura e Pré-natal", desc: "Acompanhamento de gestantes e da saúde da criança." },
   { icon: ShieldPlus, title: "Coleta de Citopatológico", desc: "Preventivo do colo uterino com a equipe de enfermagem." },
-  { icon: Syringe, title: "Sala de Vacinação", desc: "Vacinas do SUS e teste do pezinho — terças e quintas." },
+  { icon: Syringe, title: "Sala de Vacinação", desc: "Vacinas do calendário do SUS — terças e quintas." },
+  { icon: Footprints, title: "Teste do Pezinho", desc: "Disponível todos os dias na unidade. Traga a certidão de nascimento e a carteirinha do bebê." },
   { icon: TestTube2, title: "Coleta Laboratorial (LABVIDA)", desc: "Coletas às terças e quintas-feiras, às 8h." },
   { icon: Smile, title: "Odontologia", desc: "Agendamento presencial às quartas, 8h. Idosos por telefone." },
   { icon: Bandage, title: "Curativos e Procedimentos", desc: "Todos os dias, 8h–11h e 13h–16h (exceto quarta à tarde)." },
-  { icon: Sparkles, title: "Testes Rápidos", desc: "HIV, sífilis, hepatites B e C e gravidez, conforme protocolo." },
+  { icon: Sparkles, title: "Testes Rápidos", desc: "HIV, sífilis, hepatites B e C, gravidez, COVID-19 e dengue. Teste de gravidez: mínimo 7 dias de atraso menstrual e 2h de retenção urinária (de preferência a 1ª urina da manhã)." },
   { icon: Home, title: "Visitas Domiciliares", desc: "Cuidados paliativos e pacientes acamados, pré-agendadas." },
   { icon: ClipboardList, title: "Grupos de Educação em Saúde", desc: "Amigos da Saúde, Vida Leve, Fisioterapia UFN e Gestantes." },
   { icon: FileText, title: "Renovação de Receitas", desc: "Solicite com antecedência na recepção — atendimento agendado." },
