@@ -4,7 +4,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { Calendar, Stethoscope, Clock, CalendarRange, Users, MapPin, ArrowRight } from "lucide-react";
 
 const QUICK = [
-  { to: "/agendar", icon: Calendar, title: "Agendar consulta", desc: "Marque em menos de 1 minuto e receba o comprovante." },
+  { to: "/horarios", icon: Calendar, title: "Como marcar consulta", desc: "Agendamento presencial na recepção ou pelo telefone da unidade." },
   { to: "/servicos", icon: Stethoscope, title: "Serviços", desc: "Veja tudo que a unidade oferece pelo SUS." },
   { to: "/horarios", icon: Clock, title: "Horários", desc: "Consulte funcionamento por área e por dia." },
   { to: "/calendario", icon: CalendarRange, title: "Calendário e grupos", desc: "Eventos, campanhas e grupos da comunidade." },

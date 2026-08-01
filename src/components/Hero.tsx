@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, Stethoscope, ShieldCheck } from "lucide-react";
+import { Phone, Stethoscope, ShieldCheck } from "lucide-react";
 import heroImg from "@/assets/ubs-hero.jpg";
 
 const Hero = () => {
@@ -24,16 +24,16 @@ const Hero = () => {
           </h1>
 
           <p className="max-w-xl text-base leading-relaxed text-primary-foreground/85 md:text-lg">
-            Agende consultas, vacinas e atendimento odontológico na ESF São Carlos/Urlândia em poucos cliques.
-            Tire também suas dúvidas sobre serviços e horários direto pelo nosso assistente virtual.
+            Conheça os serviços, horários e a equipe da ESF São Carlos/Urlândia.
+            Tire suas dúvidas sobre atendimento, vacinação e exames direto pelo nosso assistente virtual.
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" variant="secondary" className="font-bold shadow-elevated">
-              <Link to="/agendar">
-                <Calendar className="mr-2 h-5 w-5" />
-                Agendar consulta
-              </Link>
+              <a href="tel:+555531741588">
+                <Phone className="mr-2 h-5 w-5" />
+                (55) 3174-1588
+              </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 bg-primary-foreground/5 font-semibold text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground">
               <Link to="/servicos">

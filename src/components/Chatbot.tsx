@@ -7,8 +7,8 @@ type Msg = { role: "bot" | "user"; text: string };
 
 const QUICK = [
   "Horários de funcionamento",
-  "Como agendar consulta médica",
-  "Como agendar dentista",
+  "Como marcar consulta médica",
+  "Como marcar dentista",
   "Coleta de laboratório",
   "Sala de vacinas",
   "Acolhimento Área 19 e 20",
@@ -19,6 +19,7 @@ const QUICK = [
   "Renovação de receitas",
   "Documentos necessários",
   "Localização e como chegar",
+  "Área de abrangência",
   "Telefone e Instagram",
   "Emergências",
 ];
@@ -32,7 +33,7 @@ const FAQ: { keys: string[]; answer: string }[] = [
   {
     keys: ["agendar médico", "agendar medico", "consulta médica", "consulta medica", "marcar consulta", "marcar médico", "marcar medico"],
     answer:
-      "Os agendamentos médicos seguem a **divisão por área**:\n• **Área 19 — quinzenal**\n• **Área 20 — mensal**\nAgende pela seção **Agendar consulta** no topo desta página, na **recepção** ou pelo telefone **(55) 3174-1588 – opção 1**. Tenha em mãos seu **Cartão SUS**.",
+      "Os agendamentos médicos seguem a **divisão por área**:\n• **Área 19 — quinzenal**\n• **Área 20 — mensal**\nO agendamento é feito **presencialmente na recepção** ou pelo telefone **(55) 3174-1588 – opção 1**. Tenha em mãos seu **Cartão SUS**.",
   },
   {
     keys: ["área 19", "area 19", "minha área", "minha area", "qual área", "qual area"],
@@ -47,7 +48,7 @@ const FAQ: { keys: string[]; answer: string }[] = [
   {
     keys: ["agendar", "marcar", "agendamento", "como agendar"],
     answer:
-      "Você pode agendar de 3 formas:\n1. **Online** — formulário **Agendar consulta** desta página\n2. **Presencial** — recepção da unidade\n3. **Telefone** — **(55) 3174-1588 – opção 1**\nEspecialidades: médico (Área 19 quinzenal · Área 20 mensal), enfermagem, odontologia (quartas 8h), pré-natal, puericultura e preventivo.",
+      "O agendamento é feito de **2 formas**:\n1. **Presencial** — recepção da unidade, seg–sex 8h–12h e 13h–17h\n2. **Telefone** — **(55) 3174-1588 – opção 1**\nEste site é **informativo** e não realiza agendamentos online.\nEspecialidades: médico (Área 19 quinzenal · Área 20 mensal), enfermagem, odontologia (quartas 8h), pré-natal, puericultura e preventivo.",
   },
   {
     keys: ["dentista", "odontológico", "odontologico", "odonto", "dente", "boca"],
@@ -165,7 +166,7 @@ const FAQ: { keys: string[]; answer: string }[] = [
   {
     keys: ["cancelar", "remarcar", "desmarcar", "reagendar", "não vou poder", "nao vou poder"],
     answer:
-      "Para **cancelar ou remarcar**, faça um novo agendamento no site ou ligue para **(55) 3174-1588 – opção 1** com **até 24 horas de antecedência**. Isso libera vagas para outros pacientes.",
+      "Para **cancelar ou remarcar**, avise a recepção pessoalmente ou ligue para **(55) 3174-1588 – opção 1** com **até 24 horas de antecedência**. Isso libera vagas para outros pacientes.",
   },
   {
     keys: ["emergência", "emergencia", "samu", "192", "bombeiros", "193"],
@@ -178,9 +179,9 @@ const FAQ: { keys: string[]; answer: string }[] = [
       "📅 Veja o **Calendário** nesta página: lá estão todos os **grupos recorrentes**, **coletas de laboratório**, **dias de vacinação** e **campanhas** do mês.",
   },
   {
-    keys: ["protocolo", "comprovante", "voucher", "pdf", "confirmação", "confirmacao"],
+    keys: ["abrangência", "abrangencia", "área de cobertura", "area de cobertura", "território", "territorio", "bairro", "atende minha rua", "regiões", "regioes", "mapa das áreas", "mapa das areas"],
     answer:
-      "Ao agendar pelo site, você recebe um **número de protocolo** e pode **baixar o comprovante em PDF** com todos os dados da consulta. Apresente o protocolo na recepção no dia.",
+      "🗺️ A ESF São Carlos/Urlândia atende o território da **Vila Urlândia e adjacências**, dividido em **Área 19** e **Área 20**.\nNa página **Localização** há o **mapa das regiões atendidas** com todas as ruas. Se a sua rua estiver no mapa, você é da nossa área.\nNa dúvida, fale com o **ACS da sua rua** ou vá à recepção com **comprovante de residência**.",
   },
   {
     keys: ["idoso", "idosa", "terceira idade", "hiperdia", "hipertensão", "hipertensao", "diabetes"],

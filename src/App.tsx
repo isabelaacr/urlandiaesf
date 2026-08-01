@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
 import Index from "./pages/Index.tsx";
-import Agendar from "./pages/Agendar.tsx";
 import Servicos from "./pages/Servicos.tsx";
 import Horarios from "./pages/Horarios.tsx";
 import Calendario from "./pages/Calendario.tsx";
@@ -24,7 +23,6 @@ const App = () => (
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
-            <Route path="/agendar" element={<Agendar />} />
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/horarios" element={<Horarios />} />
             <Route path="/calendario" element={<Calendario />} />

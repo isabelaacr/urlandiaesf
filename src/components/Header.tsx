@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Heart, Phone, Menu, X, Calendar } from "lucide-react";
+import { Heart, Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -50,7 +50,7 @@ const Header = () => {
             (55) 3174-1588
           </a>
           <Button asChild size="sm" className="font-bold">
-            <Link to="/agendar"><Calendar className="mr-1.5 h-4 w-4" /> Agendar</Link>
+            <a href="tel:+555531741588"><Phone className="mr-1.5 h-4 w-4" /> Ligar</a>
           </Button>
         </div>
 
@@ -82,13 +82,6 @@ const Header = () => {
                 {n.label}
               </NavLink>
             ))}
-            <Link
-              to="/agendar"
-              onClick={() => setOpen(false)}
-              className="mt-2 flex items-center justify-center gap-2 rounded-md bg-primary px-3 py-2.5 text-sm font-bold text-primary-foreground"
-            >
-              <Calendar className="h-4 w-4" /> Agendar consulta
-            </Link>
             <a
               href="tel:+555531741588"
               className="mt-2 flex items-center gap-2 rounded-md bg-primary-soft px-3 py-2.5 text-sm font-bold text-primary"
