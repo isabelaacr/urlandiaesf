@@ -1,6 +1,7 @@
 import { MapPin, Navigation, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeader from "./SectionHeader";
+import mapaArea from "@/assets/mapa-area-esf.jpg.asset.json";
 
 const ADDRESS = "Rua Agostinho Scolari, 546 - Vila Urlândia, Santa Maria - RS";
 const MAPS_QUERY = encodeURIComponent(ADDRESS);
@@ -76,6 +77,49 @@ const LocationMap = () => {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
+          </div>
+        </div>
+
+        <div className="mt-14">
+          <SectionHeader
+            eyebrow="Área de abrangência"
+            title="Regiões atendidas pela ESF"
+            description="A unidade cobre os bairros Urlândia e adjacências, divididos em Área 19 e Área 20. Se sua rua estiver no mapa, você é da nossa área."
+            align="center"
+          />
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-start">
+            <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-elevated">
+              <img
+                src={mapaArea.url}
+                alt="Mapa das regiões atendidas pela ESF São Carlos/Urlândia, com as ruas dos bairros Urlândia, Duque de Caxias e Uglione"
+                loading="lazy"
+                className="w-full object-contain"
+              />
+              <figcaption className="border-t border-border px-4 py-3 text-xs text-muted-foreground">
+                Mapa do território da ESF São Carlos/Urlândia. As cruzes vermelhas indicam as unidades de saúde da região.
+              </figcaption>
+            </figure>
+
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+                <p className="font-display text-sm font-bold uppercase tracking-wider text-primary">Área 19</p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Acolhimento de <strong className="text-foreground">segunda a sexta, 8h–9h e 13h–14h</strong>. Agendamento médico <strong className="text-foreground">quinzenal</strong>.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+                <p className="font-display text-sm font-bold uppercase tracking-wider text-primary">Área 20</p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Acolhimento <strong className="text-foreground">terças e quintas, 8h–11h e 13h–16h</strong>. Agendamento médico <strong className="text-foreground">mensal</strong>.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-border bg-primary-soft p-6">
+                <p className="text-sm text-foreground">
+                  Não sabe qual é a sua área? Pergunte ao <strong>Agente Comunitário de Saúde (ACS)</strong> da sua rua ou na recepção da unidade, levando um <strong>comprovante de residência</strong>.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
