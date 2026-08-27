@@ -208,9 +208,34 @@ const FAQ: { keys: string[]; answer: string }[] = [
       "🪪 Para **fazer ou atualizar o Cartão SUS**, vá à **recepção da unidade** com **RG, CPF e comprovante de residência**.",
   },
   {
-    keys: ["mudança", "mudanca", "novo morador", "me mudei", "cadastrar"],
+    keys: ["ficha", "fichas", "quantas fichas", "fila", "que horas chegar", "chegar cedo", "distribuição de fichas", "distribuicao de fichas", "senha"],
     answer:
-      "🏘️ Novo morador da Vila Urlândia? Procure a recepção com **RG, CPF, Cartão SUS e comprovante de residência** para se **cadastrar** no território. O **agente comunitário (ACS)** da sua rua passará para confirmar o cadastro.",
+      "🎟️ **Fichas de agendamento:**\n• São distribuídas **no dia do agendamento, na unidade**, por um profissional da recepção.\n• Costumam ser cerca de **60 fichas**, mas o número **varia** conforme a agenda do médico de referência do mês seguinte — por isso não divulgamos antecipadamente.\n• Há **divisão de vagas para idosos**.\n• A comunidade costuma chegar por volta das **6h**. Quanto mais cedo, mais opções de data.\n• Depois da distribuição, o agendamento é feito **chamando pelo número da ficha**.",
+  },
+  {
+    keys: ["duas fichas", "2 fichas", "para mim e", "meu filho", "minha filha", "mais de uma pessoa", "duas consultas", "2 consultas"],
+    answer:
+      "👨‍👩‍👧 Se precisa marcar para **mais de uma pessoa** (por exemplo, você e seu filho), peça **uma ficha para cada pessoa** no dia da distribuição. Não é possível agendar duas consultas com uma ficha só.",
+  },
+  {
+    keys: ["resultado de exame", "mostrar exame", "mostrar meus exames", "levar exame", "exame pronto", "resultado dos exames", "retorno"],
+    answer:
+      "📄 Para **mostrar resultados de exames ao médico**, é necessária uma **consulta de retorno** — não há atendimento por ordem de chegada só para isso.\n• Pegue **ficha no dia da distribuição** e agende o retorno com o seu médico de referência.\n• **Idosos (60+)** têm vagas reservadas — informe sua idade na recepção.\n• Se o resultado indicar algo urgente, procure o **acolhimento** da sua área para avaliação de risco.",
+  },
+  {
+    keys: ["desligar", "sair da ubs", "mudar de posto", "transferir", "transferência", "transferencia", "outro posto", "cancelar cadastro"],
+    answer:
+      "🔁 Para **deixar de ser vinculado à ESF São Carlos/Urlândia**, não é preciso pedir baixa aqui: basta **fazer o novo cadastro na unidade de saúde de referência do seu novo endereço**. O sistema atualiza o vínculo automaticamente.",
+  },
+  {
+    keys: ["qual é minha área", "qual e minha area", "moro na rua", "descobrir área", "descobrir area", "meu acs", "maristela", "agente da minha rua"],
+    answer:
+      "🏘️ Sua **área é definida pelo endereço**. A forma mais rápida de saber: veja **qual agente comunitário (ACS)** acompanha a sua casa.\n• ACS da **Área 19:** Carina, Patrícia, Iolanda, Mariele e Cláudia\n• ACS da **Área 20:** Giovanni, Mara Paz, Maristela e Elisane\nTambém pode confirmar na **recepção** levando comprovante de residência.",
+  },
+  {
+    keys: ["piorou", "piorei", "febre", "não melhorou", "nao melhorou", "voltou pior", "sintoma novo"],
+    answer:
+      "⚠️ Se os sintomas **pioraram ou surgiram novos** depois da consulta (febre persistente, falta de ar, cansaço), **retorne à unidade pelo acolhimento** o quanto antes para nova avaliação — quadros podem evoluir em poucos dias.\nSe for grave ou fora do horário, procure a **UPA/Pronto Atendimento** ou ligue **192 (SAMU)**.",
   },
 ];
 
