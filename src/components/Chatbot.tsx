@@ -57,7 +57,7 @@ const FAQ: { keys: string[]; answer: string }[] = [
   {
     keys: ["dentista", "odontológico", "odontologico", "odonto", "dente", "boca"],
     answer:
-      "**Odontologia** — agendamento **às quartas-feiras, 8h, presencialmente** na unidade.\n👵 **Idosos** podem agendar **por telefone**: (55) 3174-1588 – opção 1.\nAtendimento para toda a família com nosso(a) cirurgião(ã)-dentista.",
+      "🦷 **Odontologia (dentista Sabrina)** — as **fichas são distribuídas todas as quartas-feiras de manhã, a partir das 8h**, na unidade.\n• Um profissional faz a **distribuição das fichas** e depois a própria dentista **chama pelo número da ficha** para agendar.\n👵 **Idosos** podem agendar **por telefone**: (55) 3174-1588 – opção 1.",
   },
   {
     keys: ["onde", "endereço", "endereco", "localização", "localizacao", "fica", "rua", "como chegar", "chegar", "mapa"],
