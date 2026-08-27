@@ -20,6 +20,10 @@ const QUICK = [
   "Documentos necessários",
   "Localização e como chegar",
   "Área de abrangência",
+  "Fichas: quantas e que horas chegar",
+  "Mostrar resultado de exames",
+  "Sair da UBS / mudar de posto",
+  "Marcar para mim e para meu filho",
   "Telefone e Instagram",
   "Emergências",
 ];
