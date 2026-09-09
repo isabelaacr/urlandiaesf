@@ -35,9 +35,19 @@ const LocationMap = () => {
                 <Phone className="h-5 w-5" />
               </div>
               <div>
-                <p className="font-display text-sm font-bold uppercase tracking-wider text-primary">Telefone</p>
+                <p className="font-display text-sm font-bold uppercase tracking-wider text-primary">Telefones</p>
                 <p className="mt-1 font-semibold text-foreground">(55) 3174-1588</p>
                 <p className="text-sm text-muted-foreground">Opção 1 · Recepção</p>
+                <p className="mt-1 font-semibold text-foreground">(55) 99148-5641</p>
+                <p className="text-sm text-muted-foreground">Celular da unidade</p>
+                <a
+                  href="https://www.santamaria.rs.gov.br/saude"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block text-sm font-semibold text-primary hover:underline"
+                >
+                  Agendamento online — Prefeitura de Santa Maria
+                </a>
               </div>
             </div>
 
