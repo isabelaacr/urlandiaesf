@@ -37,22 +37,22 @@ const FAQ: { keys: string[]; answer: string }[] = [
   {
     keys: ["agendar médico", "agendar medico", "consulta médica", "consulta medica", "marcar consulta", "marcar médico", "marcar medico"],
     answer:
-      "Os agendamentos médicos seguem a **divisão por área**:\n• **Área 19 — quinzenal**\n• **Área 20 — mensal**\nO agendamento é feito **presencialmente na recepção** ou pelo telefone **(55) 3174-1588 – opção 1**. Tenha em mãos seu **Cartão SUS**.",
+      "Temos **1 médico(a) para cada área/equipe** (Área 19 e Área 20). O atendimento é por **demanda programada (agendada)** e **demanda espontânea**, conforme **avaliação prévia no acolhimento**.\n• **Área 19 — agendamento mensal**\n• **Área 20 — agendamento mensal**\nAgende **na recepção**, pelo telefone **(55) 3174-1588 – opção 1**, pelo **celular (55) 99148-5641** ou pelo **agendamento online da Prefeitura**: https://www.santamaria.rs.gov.br/saude",
   },
   {
     keys: ["área 19", "area 19", "minha área", "minha area", "qual área", "qual area"],
     answer:
-      "**Área 19:** acolhimento de **segunda a sexta, 8h–9h e 13h–14h**. Agendamento médico **quinzenal**. Não sabe sua área? Pergunte ao seu **Agente Comunitário de Saúde (ACS)** ou na recepção.",
+      "**Área 19:** acolhimento de **segunda a sexta, 8h–9h e 13h–14h**. Agendamento médico **mensal**, com médico(a) próprio da equipe. Não sabe sua área? Pergunte ao seu **Agente Comunitário de Saúde (ACS)** ou na recepção.",
   },
   {
     keys: ["área 20", "area 20"],
     answer:
-      "**Área 20:** acolhimento **terças e quintas, 8h–11h e 13h–16h**. Agendamento médico **mensal**. Em outros turnos, a equipe avalia urgência e risco.",
+      "**Área 20:** acolhimento **terças e quintas, 8h–11h e 13h–16h**. Agendamento médico **mensal**, com médico(a) próprio da equipe. Em outros turnos, a equipe avalia urgência e risco.",
   },
   {
     keys: ["agendar", "marcar", "agendamento", "como agendar"],
     answer:
-      "O agendamento é feito de **2 formas**:\n1. **Presencial** — recepção da unidade, seg–sex 8h–12h e 13h–17h\n2. **Telefone** — **(55) 3174-1588 – opção 1**\nEste site é **informativo** e não realiza agendamentos online.\nEspecialidades: médico (Área 19 quinzenal · Área 20 mensal), enfermagem, odontologia (quartas 8h), pré-natal, puericultura e preventivo.",
+      "O agendamento pode ser feito de **3 formas**:\n1. **Presencial** — recepção da unidade, seg–sex 8h–12h e 13h–17h\n2. **Telefone** — **(55) 3174-1588 – opção 1** · **celular (55) 99148-5641**\n3. **Online** — site da Prefeitura de Santa Maria: https://www.santamaria.rs.gov.br/saude\nEste site é **informativo** e não realiza agendamentos.\nEspecialidades: médico (Área 19 e Área 20 — agendamento mensal), enfermagem, odontologia (quartas 8h), pré-natal, puericultura e preventivo.",
   },
   {
     keys: ["dentista", "odontológico", "odontologico", "odonto", "dente", "boca"],
@@ -156,7 +156,7 @@ const FAQ: { keys: string[]; answer: string }[] = [
   },
   {
     keys: ["telefone", "contato", "ligar", "número", "numero"],
-    answer: "📞 **(55) 3174-1588 – opção 1**\nAtendimento no horário da unidade (seg–sex, 8h–12h e 13h–17h).",
+    answer: "📞 **Fixo: (55) 3174-1588 – opção 1**\n📱 **Celular: (55) 99148-5641**\n💻 **Agendamento online (Prefeitura):** https://www.santamaria.rs.gov.br/saude\nAtendimento no horário da unidade (seg–sex, 8h–12h e 13h–17h).",
   },
   {
     keys: ["instagram", "rede social", "redes sociais", "facebook", "social"],
