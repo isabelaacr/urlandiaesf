@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import SectionHeader from "@/components/SectionHeader";
-import { Calendar, Stethoscope, Clock, CalendarRange, Users, MapPin, ArrowRight } from "lucide-react";
+import { Calendar, Stethoscope, Clock, CalendarRange, Users, MapPin, ArrowRight, Laptop } from "lucide-react";
 
 const QUICK = [
   { to: "/horarios", icon: Calendar, title: "Como marcar consulta", desc: "Agendamento presencial na recepção ou pelo telefone da unidade." },
+  { to: "/agendamento-online", icon: Laptop, title: "Agendamento online", desc: "Passo a passo para marcar consulta médica pelo site da Prefeitura." },
   { to: "/servicos", icon: Stethoscope, title: "Serviços", desc: "Veja tudo que a unidade oferece pelo SUS." },
   { to: "/horarios", icon: Clock, title: "Horários", desc: "Consulte funcionamento por área e por dia." },
   { to: "/calendario", icon: CalendarRange, title: "Calendário e grupos", desc: "Eventos, campanhas e grupos da comunidade." },

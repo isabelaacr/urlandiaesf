@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
 import Index from "./pages/Index.tsx";
 import Servicos from "./pages/Servicos.tsx";
+import AgendamentoOnline from "./pages/AgendamentoOnline.tsx";
 import Horarios from "./pages/Horarios.tsx";
 import Calendario from "./pages/Calendario.tsx";
 import Equipe from "./pages/Equipe.tsx";
@@ -24,6 +25,7 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/servicos" element={<Servicos />} />
+            <Route path="/agendamento-online" element={<AgendamentoOnline />} />
             <Route path="/horarios" element={<Horarios />} />
             <Route path="/calendario" element={<Calendario />} />
             <Route path="/equipe" element={<Equipe />} />
