@@ -11,8 +11,8 @@ const schedule = [
 ];
 
 const highlights = [
+  { title: "Agendamento médico — Área 19", time: "Mensal" },
   { title: "Agendamento médico — Área 20", time: "Mensal" },
-  { title: "Agendamento médico — Área 19", time: "Quinzenal" },
   { title: "Odontologia (agendamento)", time: "Quartas, 8h · presencial" },
   { title: "Coleta laboratorial (LABVIDA)", time: "Terças e quintas, 8h" },
   { title: "Sala de vacinação e teste do pezinho", time: "Terças e quintas · 8h–11h e 13h–16h" },
