@@ -1,4 +1,4 @@
-import { Heart, MapPin, Phone, Instagram, Facebook } from "lucide-react";
+import { Heart, MapPin, Phone, Instagram, Facebook, ExternalLink } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -24,6 +24,13 @@ const Footer = () => {
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-start gap-2.5"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" /> Rua Agostinho Scolari, 546 – Vila Urlândia</li>
             <li className="flex items-center gap-2.5"><Phone className="h-4 w-4 text-secondary" /> (55) 3174-1588 – opção 1</li>
+            <li className="flex items-center gap-2.5"><Phone className="h-4 w-4 text-secondary" /> Celular: (55) 99148-5641</li>
+            <li className="flex items-start gap-2.5">
+              <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+              <a href="https://www.santamaria.rs.gov.br/saude" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                Agendamento online — Prefeitura de Santa Maria
+              </a>
+            </li>
             <li className="flex items-center gap-2.5">
               <Instagram className="h-4 w-4 text-secondary" />
               <a href="https://instagram.com/esf_saocarlos" target="_blank" rel="noopener noreferrer" className="hover:underline">@esf_saocarlos</a>

@@ -32,7 +32,6 @@ const recurring: RecurringEvent[] = [
 
 const monthly: MonthlyEvent[] = [
   { title: "Grupo de Gestantes", time: "14:00", dayOfMonth: 15, type: "grupo" },
-  { title: "Campanha de Vacinação contra Influenza", time: "Dia todo", dayOfMonth: 22, type: "campanha" },
 ];
 
 const typeMeta: Record<EventType, { label: string; icon: typeof Users; className: string; dot: string }> = {

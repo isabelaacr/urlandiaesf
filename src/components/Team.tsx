@@ -15,9 +15,6 @@ const groups: Group[] = [
     icon: UserCog,
     title: "Recepção e Administrativo",
     members: [
-      { name: "Samuel Gomes", role: "Recepção — manhã e tarde (Sulclean)" },
-      { name: "Raphaella", role: "Recepção — manhã (Jovem Aprendiz CIEE)" },
-      { name: "Helena", role: "Recepção — tarde (Jovem Aprendiz CIEE)" },
       { name: "Camilla Lovato", role: "Agente Administrativa" },
     ],
   },

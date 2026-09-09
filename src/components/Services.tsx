@@ -1,7 +1,7 @@
 import { Stethoscope, Syringe, Baby, HeartPulse, TestTube2, Smile, Bandage, ClipboardList, Home, FileText, Sparkles, ShieldPlus, Footprints } from "lucide-react";
 
 const services = [
-  { icon: Stethoscope, title: "Consultas Médicas", desc: "Clínica geral agendada e demanda espontânea com 2 médicos(as)." },
+  { icon: Stethoscope, title: "Consultas Médicas", desc: "Um médico(a) para cada área/equipe (Área 19 e Área 20). Atendimento por demanda programada (agendada) e demanda espontânea, conforme avaliação prévia no acolhimento." },
   { icon: HeartPulse, title: "Consultas de Enfermagem", desc: "Acolhimento, escuta qualificada e orientações com a equipe." },
   { icon: Baby, title: "Puericultura e Pré-natal", desc: "Acompanhamento de gestantes e da saúde da criança." },
   { icon: ShieldPlus, title: "Coleta de Citopatológico", desc: "Preventivo do colo uterino com a equipe de enfermagem." },
